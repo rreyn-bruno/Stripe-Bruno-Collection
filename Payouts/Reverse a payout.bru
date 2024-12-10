@@ -1,0 +1,34 @@
+meta {
+  name: Reverse a payout
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/payouts/:payout/reverse
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  payout: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Reverses a payout by debiting the destination bank account. At this time, you can only reverse payouts for connected accounts to US bank accounts. If the payout is manual and in the <code>pending</code> status, use <code>/v1/payouts/:id/cancel</code> instead.</p>
+  
+  <p>By requesting a reversal through <code>/v1/payouts/:id/reverse</code>, you confirm that the authorized signatory of the selected bank account authorizes the debit on the bank account and that no other authorization is required.</p>
+}

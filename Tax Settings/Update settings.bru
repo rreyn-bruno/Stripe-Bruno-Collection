@@ -1,0 +1,36 @@
+meta {
+  name: Update settings
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/tax/settings
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~defaults[tax_behavior]: <string>
+  ~defaults[tax_code]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~head_office[address][city]: <string>
+  ~head_office[address][country]: <string>
+  ~head_office[address][line1]: <string>
+  ~head_office[address][line2]: <string>
+  ~head_office[address][postal_code]: <string>
+  ~head_office[address][state]: <string>
+}
+
+docs {
+  <p>Updates Tax <code>Settings</code> parameters used in tax calculations. All parameters are editable but none can be removed once set.</p>
+}

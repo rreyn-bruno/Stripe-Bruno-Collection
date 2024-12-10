@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve FinancialAccount Features
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/treasury/financial_accounts/:financial_account/features
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  financial_account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves Features information associated with the FinancialAccount.</p>
+}

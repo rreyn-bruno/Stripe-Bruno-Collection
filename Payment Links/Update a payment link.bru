@@ -1,0 +1,110 @@
+meta {
+  name: Update a payment link
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_links/:payment_link
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  payment_link: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~active: <boolean>
+  ~after_completion[type]: <string>
+  ~after_completion[hosted_confirmation][custom_message]: <string>
+  ~after_completion[redirect][url]: <string>
+  ~allow_promotion_codes: <boolean>
+  ~automatic_tax[enabled]: <boolean>
+  ~automatic_tax[liability][type]: <string>
+  ~automatic_tax[liability][account]: <string>
+  ~billing_address_collection: <string>
+  ~custom_fields[0][key]: <string>
+  ~custom_fields[0][label][custom]: <string>
+  ~custom_fields[0][label][type]: <string>
+  ~custom_fields[0][type]: <string>
+  ~custom_fields[0][dropdown][options][0][label]: <string>
+  ~custom_fields[0][dropdown][options][0][value]: <string>
+  ~custom_fields[0][dropdown][options][1][label]: <string>
+  ~custom_fields[0][dropdown][options][1][value]: <string>
+  ~custom_fields[0][numeric][maximum_length]: <integer>
+  ~custom_fields[0][numeric][minimum_length]: <integer>
+  ~custom_fields[0][optional]: <boolean>
+  ~custom_fields[0][text][maximum_length]: <integer>
+  ~custom_fields[0][text][minimum_length]: <integer>
+  ~custom_fields[1][key]: <string>
+  ~custom_fields[1][label][custom]: <string>
+  ~custom_fields[1][label][type]: <string>
+  ~custom_fields[1][type]: <string>
+  ~custom_fields[1][dropdown][options][0][label]: <string>
+  ~custom_fields[1][dropdown][options][0][value]: <string>
+  ~custom_fields[1][dropdown][options][1][label]: <string>
+  ~custom_fields[1][dropdown][options][1][value]: <string>
+  ~custom_fields[1][numeric][maximum_length]: <integer>
+  ~custom_fields[1][numeric][minimum_length]: <integer>
+  ~custom_fields[1][optional]: <boolean>
+  ~custom_fields[1][text][maximum_length]: <integer>
+  ~custom_fields[1][text][minimum_length]: <integer>
+  ~custom_text[after_submit][message]: <string>
+  ~custom_text[shipping_address][message]: <string>
+  ~custom_text[submit][message]: <string>
+  ~custom_text[terms_of_service_acceptance][message]: <string>
+  ~customer_creation: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~invoice_creation[enabled]: <boolean>
+  ~invoice_creation[invoice_data][account_tax_ids][0]: <string>
+  ~invoice_creation[invoice_data][account_tax_ids][1]: <string>
+  ~invoice_creation[invoice_data][custom_fields][0][name]: <string>
+  ~invoice_creation[invoice_data][custom_fields][0][value]: <string>
+  ~invoice_creation[invoice_data][custom_fields][1][name]: <string>
+  ~invoice_creation[invoice_data][custom_fields][1][value]: <string>
+  ~invoice_creation[invoice_data][description]: <string>
+  ~invoice_creation[invoice_data][footer]: <string>
+  ~invoice_creation[invoice_data][issuer][type]: <string>
+  ~invoice_creation[invoice_data][issuer][account]: <string>
+  ~invoice_creation[invoice_data][metadata]: <object>
+  ~invoice_creation[invoice_data][rendering_options][amount_tax_display]: <string>
+  ~line_items[0][id]: <string>
+  ~line_items[0][adjustable_quantity][enabled]: <boolean>
+  ~line_items[0][adjustable_quantity][maximum]: <integer>
+  ~line_items[0][adjustable_quantity][minimum]: <integer>
+  ~line_items[0][quantity]: <integer>
+  ~line_items[1][id]: <string>
+  ~line_items[1][adjustable_quantity][enabled]: <boolean>
+  ~line_items[1][adjustable_quantity][maximum]: <integer>
+  ~line_items[1][adjustable_quantity][minimum]: <integer>
+  ~line_items[1][quantity]: <integer>
+  ~payment_intent_data[description]: <string>
+  ~payment_intent_data[metadata]: <object>
+  ~payment_intent_data[statement_descriptor]: <string>
+  ~payment_intent_data[statement_descriptor_suffix]: <string>
+  ~payment_intent_data[transfer_group]: <string>
+  ~payment_method_collection: <string>
+  ~payment_method_types[0]: <string>
+  ~payment_method_types[1]: <string>
+  ~restrictions[completed_sessions][limit]: <integer>
+  ~shipping_address_collection[allowed_countries][0]: <string>
+  ~shipping_address_collection[allowed_countries][1]: <string>
+  ~subscription_data[invoice_settings][issuer][type]: <string>
+  ~subscription_data[invoice_settings][issuer][account]: <string>
+  ~subscription_data[metadata]: <object>
+  ~subscription_data[trial_settings][end_behavior][missing_payment_method]: <string>
+}
+
+docs {
+  <p>Updates a payment link.</p>
+}

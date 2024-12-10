@@ -1,0 +1,72 @@
+meta {
+  name: Update a dispute
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/issuing/disputes/:dispute
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  dispute: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount: <integer>
+  ~evidence[canceled][additional_documentation]: <string>
+  ~evidence[canceled][canceled_at]: <unix-time>
+  ~evidence[canceled][cancellation_policy_provided]: <boolean>
+  ~evidence[canceled][cancellation_reason]: <string>
+  ~evidence[canceled][expected_at]: <unix-time>
+  ~evidence[canceled][explanation]: <string>
+  ~evidence[canceled][product_description]: <string>
+  ~evidence[canceled][product_type]: <string>
+  ~evidence[canceled][return_status]: <string>
+  ~evidence[canceled][returned_at]: <unix-time>
+  ~evidence[duplicate][additional_documentation]: <string>
+  ~evidence[duplicate][card_statement]: <string>
+  ~evidence[duplicate][cash_receipt]: <string>
+  ~evidence[duplicate][check_image]: <string>
+  ~evidence[duplicate][explanation]: <string>
+  ~evidence[duplicate][original_transaction]: <string>
+  ~evidence[fraudulent][additional_documentation]: <string>
+  ~evidence[fraudulent][explanation]: <string>
+  ~evidence[merchandise_not_as_described][additional_documentation]: <string>
+  ~evidence[merchandise_not_as_described][explanation]: <string>
+  ~evidence[merchandise_not_as_described][received_at]: <unix-time>
+  ~evidence[merchandise_not_as_described][return_description]: <string>
+  ~evidence[merchandise_not_as_described][return_status]: <string>
+  ~evidence[merchandise_not_as_described][returned_at]: <unix-time>
+  ~evidence[not_received][additional_documentation]: <string>
+  ~evidence[not_received][expected_at]: <unix-time>
+  ~evidence[not_received][explanation]: <string>
+  ~evidence[not_received][product_description]: <string>
+  ~evidence[not_received][product_type]: <string>
+  ~evidence[other][additional_documentation]: <string>
+  ~evidence[other][explanation]: <string>
+  ~evidence[other][product_description]: <string>
+  ~evidence[other][product_type]: <string>
+  ~evidence[reason]: <string>
+  ~evidence[service_not_as_described][additional_documentation]: <string>
+  ~evidence[service_not_as_described][canceled_at]: <unix-time>
+  ~evidence[service_not_as_described][cancellation_reason]: <string>
+  ~evidence[service_not_as_described][explanation]: <string>
+  ~evidence[service_not_as_described][received_at]: <unix-time>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the specified Issuing <code>Dispute</code> object by setting the values of the parameters passed. Any parameters not provided will be left unchanged. Properties on the <code>evidence</code> object can be unset by passing in an empty string.</p>
+}

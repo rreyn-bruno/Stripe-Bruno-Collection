@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a location
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/v1/terminal/locations/:location
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  location: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a <code>Location</code> object.</p>
+}

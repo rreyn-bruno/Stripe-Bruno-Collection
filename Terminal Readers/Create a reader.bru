@@ -1,0 +1,31 @@
+meta {
+  name: Create a reader
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/terminal/readers
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  location: <string>
+  registration_code: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~label: <string>
+}
+
+docs {
+  <p>Creates a new <code>Reader</code> object.</p>
+}

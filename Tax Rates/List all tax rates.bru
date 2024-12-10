@@ -1,0 +1,37 @@
+meta {
+  name: List all tax rates
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/tax_rates
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~active: <boolean>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~inclusive: <boolean>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of your tax rates. Tax rates are returned sorted by creation date, with the most recently created tax rates appearing first.</p>
+}

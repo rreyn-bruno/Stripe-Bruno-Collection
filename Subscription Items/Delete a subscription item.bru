@@ -1,0 +1,33 @@
+meta {
+  name: Delete a subscription item
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/subscription_items/:item
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  item: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~clear_usage: <boolean>
+  ~proration_behavior: <string>
+  ~proration_date: <unix-time>
+}
+
+docs {
+  <p>Deletes an item from the subscription. Removing a subscription item from a subscription will not cancel the subscription.</p>
+}

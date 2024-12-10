@@ -1,0 +1,36 @@
+meta {
+  name: List all SetupAttempts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/setup_attempts?setup_intent=<string>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  setup_intent: <string>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of SetupAttempts that associate with a provided SetupIntent.</p>
+}

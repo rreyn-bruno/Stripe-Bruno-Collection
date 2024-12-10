@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a product
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/v1/products/:id
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the details of an existing product. Supply the unique product ID from either a product creation request or the product list, and Stripe will return the corresponding product information.</p>
+}

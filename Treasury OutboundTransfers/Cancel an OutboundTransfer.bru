@@ -1,0 +1,32 @@
+meta {
+  name: Cancel an OutboundTransfer
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/outbound_transfers/:outbound_transfer/cancel
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  outbound_transfer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>An OutboundTransfer can be canceled if the funds have not yet been paid out.</p>
+}

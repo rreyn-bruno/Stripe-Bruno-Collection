@@ -1,0 +1,41 @@
+meta {
+  name: Update FinancialAccount Features
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/financial_accounts/:financial_account/features
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  financial_account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~card_issuing[requested]: <boolean>
+  ~deposit_insurance[requested]: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~financial_addresses[aba][requested]: <boolean>
+  ~inbound_transfers[ach][requested]: <boolean>
+  ~intra_stripe_flows[requested]: <boolean>
+  ~outbound_payments[ach][requested]: <boolean>
+  ~outbound_payments[us_domestic_wire][requested]: <boolean>
+  ~outbound_transfers[ach][requested]: <boolean>
+  ~outbound_transfers[us_domestic_wire][requested]: <boolean>
+}
+
+docs {
+  <p>Updates the Features associated with a FinancialAccount.</p>
+}

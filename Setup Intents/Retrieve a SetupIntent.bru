@@ -1,0 +1,37 @@
+meta {
+  name: Retrieve a SetupIntent
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/setup_intents/:intent
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~client_secret: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  intent: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the details of a SetupIntent that has previously been created. </p>
+  
+  <p>Client-side retrieval using a publishable key is allowed when the <code>client_secret</code> is provided in the query string. </p>
+  
+  <p>When retrieved with a publishable key, only a subset of properties will be returned. Please refer to the <a href="#setup_intent_object">SetupIntent</a> object reference for more details.</p>
+}

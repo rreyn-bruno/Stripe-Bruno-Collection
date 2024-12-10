@@ -1,0 +1,45 @@
+meta {
+  name: Update a VerificationSession
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/identity/verification_sessions/:session
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  session: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~options[document][allowed_types][0]: <string>
+  ~options[document][allowed_types][1]: <string>
+  ~options[document][require_id_number]: <boolean>
+  ~options[document][require_live_capture]: <boolean>
+  ~options[document][require_matching_selfie]: <boolean>
+  ~options[email][require_verification]: <boolean>
+  ~options[phone][require_verification]: <boolean>
+  ~provided_details[email]: <string>
+  ~provided_details[phone]: <string>
+  ~type: <string>
+}
+
+docs {
+  <p>Updates a VerificationSession object.</p>
+  
+  <p>When the session status is <code>requires_input</code>, you can use this method to update the
+  verification check and options.</p>
+}

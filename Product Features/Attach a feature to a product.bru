@@ -1,0 +1,33 @@
+meta {
+  name: Attach a feature to a product
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/products/:product/features
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  product: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  entitlement_feature: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates a product_feature, which represents a feature attachment to a product</p>
+}

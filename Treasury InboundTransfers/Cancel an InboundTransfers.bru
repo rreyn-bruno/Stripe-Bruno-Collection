@@ -1,0 +1,32 @@
+meta {
+  name: Cancel an InboundTransfers
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/inbound_transfers/:inbound_transfer/cancel
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  inbound_transfer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Cancels an InboundTransfer.</p>
+}

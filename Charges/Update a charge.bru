@@ -1,0 +1,47 @@
+meta {
+  name: Update a charge
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/charges/:charge
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  charge: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~customer: <string>
+  ~description: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~fraud_details[user_report]: <string>
+  ~receipt_email: <string>
+  ~shipping[address][city]: <string>
+  ~shipping[address][country]: <string>
+  ~shipping[address][line1]: <string>
+  ~shipping[address][line2]: <string>
+  ~shipping[address][postal_code]: <string>
+  ~shipping[address][state]: <string>
+  ~shipping[name]: <string>
+  ~shipping[carrier]: <string>
+  ~shipping[phone]: <string>
+  ~shipping[tracking_number]: <string>
+  ~transfer_group: <string>
+}
+
+docs {
+  <p>Updates the specified charge by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+}

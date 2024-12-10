@@ -1,0 +1,39 @@
+meta {
+  name: List all events
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/events
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~delivery_success: <boolean>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~type: <string>
+  ~types[0]: <string>
+  ~types[1]: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>List events, going back up to 30 days. Each event data is rendered according to Stripe API version at its creation time, specified in <a href="/docs/api/events/object">event object</a> <code>api_version</code> attribute (not according to your current Stripe API version or <code>Stripe-Version</code> header).</p>
+}

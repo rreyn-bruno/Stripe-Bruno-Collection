@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a top-up
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/topups/:topup
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  topup: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the details of a top-up that has previously been created. Supply the unique top-up ID that was returned from your previous request, and Stripe will return the corresponding top-up information.</p>
+}

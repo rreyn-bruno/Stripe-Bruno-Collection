@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a VerificationReport
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/identity/verification_reports/:report
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  report: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves an existing VerificationReport</p>
+}

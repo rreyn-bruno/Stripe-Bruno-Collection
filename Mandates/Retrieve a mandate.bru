@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a mandate
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/mandates/:mandate
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  mandate: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a Mandate object.</p>
+}

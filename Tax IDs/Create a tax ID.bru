@@ -1,0 +1,33 @@
+meta {
+  name: Create a tax ID
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/tax_ids
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  type: <string>
+  value: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~owner[type]: <string>
+  ~owner[account]: <string>
+  ~owner[customer]: <string>
+}
+
+docs {
+  <p>Creates a new account or customer <code>tax_id</code> object.</p>
+}

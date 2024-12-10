@@ -1,0 +1,37 @@
+meta {
+  name: Validate an existing payment method domain
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_method_domains/:payment_method_domain/validate
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  payment_method_domain: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Some payment methods such as Apple Pay require additional steps to verify a domain. If the requirements weren’t satisfied when the domain was created, the payment method will be inactive on the domain.
+  The payment method doesn’t appear in Elements for this domain until it is active.</p>
+  
+  <p>To activate a payment method on an existing payment method domain, complete the required validation steps specific to the payment method, and then validate the payment method domain with this endpoint.</p>
+  
+  <p>Related guides: <a href="/docs/payments/payment-methods/pmd-registration">Payment method domains</a>.</p>
+}

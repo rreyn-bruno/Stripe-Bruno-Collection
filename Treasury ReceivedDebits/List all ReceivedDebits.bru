@@ -1,0 +1,33 @@
+meta {
+  name: List all ReceivedDebits
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/treasury/received_debits?financial_account=<string>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  financial_account: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~status: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of ReceivedDebits.</p>
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Delete a reader
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/terminal/readers/:reader
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  reader: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Deletes a <code>Reader</code> object.</p>
+}

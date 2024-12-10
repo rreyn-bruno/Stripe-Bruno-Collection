@@ -1,0 +1,35 @@
+meta {
+  name: Hand-off a SetupIntent to a Reader
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/v1/terminal/readers/:reader/process_setup_intent
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  reader: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  customer_consent_collected: <boolean>
+  setup_intent: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~process_config[enable_customer_cancellation]: <boolean>
+}
+
+docs {
+  <p>Initiates a setup intent flow on a Reader.</p>
+}

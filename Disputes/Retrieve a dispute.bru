@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a dispute
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/disputes/:dispute
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  dispute: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the dispute with the given ID.</p>
+}

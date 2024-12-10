@@ -1,0 +1,42 @@
+meta {
+  name: Set reader display
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/v1/terminal/readers/:reader/set_reader_display
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  reader: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  type: <string>
+  ~cart[currency]: <string>
+  ~cart[line_items][0][amount]: <integer>
+  ~cart[line_items][0][description]: <string>
+  ~cart[line_items][0][quantity]: <integer>
+  ~cart[line_items][1][amount]: <integer>
+  ~cart[line_items][1][description]: <string>
+  ~cart[line_items][1][quantity]: <integer>
+  ~cart[total]: <integer>
+  ~cart[tax]: <integer>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Sets reader display to show cart details.</p>
+}

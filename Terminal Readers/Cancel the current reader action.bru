@@ -1,0 +1,32 @@
+meta {
+  name: Cancel the current reader action
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/terminal/readers/:reader/cancel_action
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  reader: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Cancels the current reader action.</p>
+}

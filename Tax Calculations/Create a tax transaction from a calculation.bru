@@ -1,0 +1,30 @@
+meta {
+  name: Create a tax transaction from a calculation
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/tax/transactions/create_from_calculation
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  calculation: <string>
+  reference: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates a Tax <code>Transaction</code> from a calculation.</p>
+}

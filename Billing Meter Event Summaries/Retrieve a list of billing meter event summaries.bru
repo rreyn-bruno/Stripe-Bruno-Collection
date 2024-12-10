@@ -1,0 +1,39 @@
+meta {
+  name: Retrieve a list of billing meter event summaries
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/billing/meters/:id/event_summaries?customer=<string>&end_time=<unix-time>&start_time=<unix-time>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  customer: <string>
+  end_time: <unix-time>
+  start_time: <unix-time>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~value_grouping_window: <string>
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieve a list of billing meter event summaries.</p>
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Approve a review
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/reviews/:review/approve
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  review: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Approves a <code>Review</code> object, closing it and removing it from the list of reviews.</p>
+}

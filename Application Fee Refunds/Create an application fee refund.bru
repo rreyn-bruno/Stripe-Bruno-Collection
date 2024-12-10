@@ -1,0 +1,30 @@
+meta {
+  name: Create an application fee refund
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/application_fees/:id/refund
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount: <integer>
+  ~directive: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}

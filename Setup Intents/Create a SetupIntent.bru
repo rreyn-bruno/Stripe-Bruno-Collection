@@ -1,0 +1,128 @@
+meta {
+  name: Create a SetupIntent
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/setup_intents
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~attach_to_self: <boolean>
+  ~automatic_payment_methods[enabled]: <boolean>
+  ~automatic_payment_methods[allow_redirects]: <string>
+  ~confirm: <boolean>
+  ~confirmation_token: <string>
+  ~customer: <string>
+  ~description: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~flow_directions[0]: <string>
+  ~flow_directions[1]: <string>
+  ~mandate_data[customer_acceptance][type]: <string>
+  ~mandate_data[customer_acceptance][accepted_at]: <unix-time>
+  ~mandate_data[customer_acceptance][online][ip_address]: <string>
+  ~mandate_data[customer_acceptance][online][user_agent]: <string>
+  ~on_behalf_of: <string>
+  ~payment_method: <string>
+  ~payment_method_configuration: <string>
+  ~payment_method_data[type]: <string>
+  ~payment_method_data[acss_debit][account_number]: <string>
+  ~payment_method_data[acss_debit][institution_number]: <string>
+  ~payment_method_data[acss_debit][transit_number]: <string>
+  ~payment_method_data[au_becs_debit][account_number]: <string>
+  ~payment_method_data[au_becs_debit][bsb_number]: <string>
+  ~payment_method_data[bacs_debit][account_number]: <string>
+  ~payment_method_data[bacs_debit][sort_code]: <string>
+  ~payment_method_data[billing_details][address][city]: <string>
+  ~payment_method_data[billing_details][address][country]: <string>
+  ~payment_method_data[billing_details][address][line1]: <string>
+  ~payment_method_data[billing_details][address][line2]: <string>
+  ~payment_method_data[billing_details][address][postal_code]: <string>
+  ~payment_method_data[billing_details][address][state]: <string>
+  ~payment_method_data[billing_details][email]: <string>
+  ~payment_method_data[billing_details][name]: <string>
+  ~payment_method_data[billing_details][phone]: <string>
+  ~payment_method_data[boleto][tax_id]: <string>
+  ~payment_method_data[eps][bank]: <string>
+  ~payment_method_data[fpx][bank]: <string>
+  ~payment_method_data[ideal][bank]: <string>
+  ~payment_method_data[klarna][dob][day]: <integer>
+  ~payment_method_data[klarna][dob][month]: <integer>
+  ~payment_method_data[klarna][dob][year]: <integer>
+  ~payment_method_data[metadata]: <object>
+  ~payment_method_data[p24][bank]: <string>
+  ~payment_method_data[radar_options][session]: <string>
+  ~payment_method_data[sepa_debit][iban]: <string>
+  ~payment_method_data[sofort][country]: <string>
+  ~payment_method_data[us_bank_account][account_holder_type]: <string>
+  ~payment_method_data[us_bank_account][account_number]: <string>
+  ~payment_method_data[us_bank_account][account_type]: <string>
+  ~payment_method_data[us_bank_account][financial_connections_account]: <string>
+  ~payment_method_data[us_bank_account][routing_number]: <string>
+  ~payment_method_options[acss_debit][currency]: <string>
+  ~payment_method_options[acss_debit][mandate_options][custom_mandate_url]: <string>
+  ~payment_method_options[acss_debit][mandate_options][default_for][0]: <string>
+  ~payment_method_options[acss_debit][mandate_options][default_for][1]: <string>
+  ~payment_method_options[acss_debit][mandate_options][interval_description]: <string>
+  ~payment_method_options[acss_debit][mandate_options][payment_schedule]: <string>
+  ~payment_method_options[acss_debit][mandate_options][transaction_type]: <string>
+  ~payment_method_options[acss_debit][verification_method]: <string>
+  ~payment_method_options[card][mandate_options][amount]: <integer>
+  ~payment_method_options[card][mandate_options][amount_type]: <string>
+  ~payment_method_options[card][mandate_options][currency]: <string>
+  ~payment_method_options[card][mandate_options][interval]: <string>
+  ~payment_method_options[card][mandate_options][reference]: <string>
+  ~payment_method_options[card][mandate_options][start_date]: <unix-time>
+  ~payment_method_options[card][mandate_options][description]: <string>
+  ~payment_method_options[card][mandate_options][end_date]: <unix-time>
+  ~payment_method_options[card][mandate_options][interval_count]: <integer>
+  ~payment_method_options[card][mandate_options][supported_types][0]: <string>
+  ~payment_method_options[card][mandate_options][supported_types][1]: <string>
+  ~payment_method_options[card][network]: <string>
+  ~payment_method_options[card][request_three_d_secure]: <string>
+  ~payment_method_options[card][three_d_secure][ares_trans_status]: <string>
+  ~payment_method_options[card][three_d_secure][cryptogram]: <string>
+  ~payment_method_options[card][three_d_secure][electronic_commerce_indicator]: <string>
+  ~payment_method_options[card][three_d_secure][network_options][cartes_bancaires][cb_avalgo]: <string>
+  ~payment_method_options[card][three_d_secure][network_options][cartes_bancaires][cb_exemption]: <string>
+  ~payment_method_options[card][three_d_secure][network_options][cartes_bancaires][cb_score]: <integer>
+  ~payment_method_options[card][three_d_secure][requestor_challenge_indicator]: <string>
+  ~payment_method_options[card][three_d_secure][transaction_id]: <string>
+  ~payment_method_options[card][three_d_secure][version]: <string>
+  ~payment_method_options[paypal][billing_agreement_id]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][permissions][0]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][permissions][1]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][prefetch][0]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][prefetch][1]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][return_url]: <string>
+  ~payment_method_options[us_bank_account][mandate_options][collection_method]: <string>
+  ~payment_method_options[us_bank_account][networks][requested][0]: <string>
+  ~payment_method_options[us_bank_account][networks][requested][1]: <string>
+  ~payment_method_options[us_bank_account][verification_method]: <string>
+  ~payment_method_types[0]: <string>
+  ~payment_method_types[1]: <string>
+  ~return_url: <string>
+  ~single_use[amount]: <integer>
+  ~single_use[currency]: <string>
+  ~usage: <string>
+  ~use_stripe_sdk: <boolean>
+}
+
+docs {
+  <p>Creates a SetupIntent object.</p>
+  
+  <p>After you create the SetupIntent, attach a payment method and <a href="/docs/api/setup_intents/confirm">confirm</a>
+  it to collect any required permissions to charge the payment method later.</p>
+}

@@ -1,0 +1,32 @@
+meta {
+  name: List all account capabilities
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/v1/accounts/:account/capabilities
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of capabilities associated with the account. The capabilities are returned sorted by creation date, with the most recent capability appearing first.</p>
+}

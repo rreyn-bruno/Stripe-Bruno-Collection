@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a physical bundle
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/issuing/physical_bundles/:physical_bundle
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  physical_bundle: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a physical bundle object.</p>
+}

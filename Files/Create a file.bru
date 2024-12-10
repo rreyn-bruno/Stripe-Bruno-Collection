@@ -1,0 +1,32 @@
+meta {
+  name: Create a file
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://files.stripe.com/v1/files
+  body: multipartForm
+  auth: bearer
+}
+
+headers {
+  Content-Type: multipart/form-data
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:multipart-form {
+  file: @file()
+  purpose: <string>
+  expand: ["<string>","<string>"]
+  file_link_data: {"create":"<boolean>","expires_at":"<unix-time>","metadata":"<object>"}
+}
+
+docs {
+  <p>To upload a file to Stripe, you need to send a request of type <code>multipart/form-data</code>. Include the file you want to upload in the request, and the parameters for creating a file.</p>
+  
+  <p>All of Stripe’s officially supported Client libraries support sending <code>multipart/form-data</code>.</p>
+}

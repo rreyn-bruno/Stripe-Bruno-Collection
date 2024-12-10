@@ -1,0 +1,33 @@
+meta {
+  name: Retrieve a customer balance transaction
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/customers/:customer/balance_transactions/:transaction
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  customer: <string>
+  transaction: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a specific customer balance transaction that updated the customer’s <a href="/docs/billing/customer/balance">balances</a>.</p>
+}

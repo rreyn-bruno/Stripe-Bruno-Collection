@@ -1,0 +1,32 @@
+meta {
+  name: Mark an invoice as uncollectable
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/v1/invoices/:invoice/mark_uncollectible
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  invoice: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Marking an invoice as uncollectible is useful for keeping track of bad debts that can be written off for accounting purposes.</p>
+}

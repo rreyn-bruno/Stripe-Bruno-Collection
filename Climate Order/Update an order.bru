@@ -1,0 +1,33 @@
+meta {
+  name: Update an order
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/climate/orders/:order
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  order: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~beneficiary[public_name]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the specified order by setting the values of the parameters passed.</p>
+}

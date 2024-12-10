@@ -1,0 +1,27 @@
+meta {
+  name: Delete an invoice
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/v1/invoices/:invoice
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  invoice: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Permanently deletes a one-off invoice draft. This cannot be undone. Attempts to delete invoices that are no longer in a draft state will fail; once an invoice has been finalized or if an invoice is for a subscription, it must be <a href="#void_invoice">voided</a>.</p>
+}

@@ -1,0 +1,31 @@
+meta {
+  name: Creates a billing meter event
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/billing/meter_events
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  event_name: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~identifier: <string>
+  ~timestamp: <unix-time>
+}
+
+docs {
+  <p>Creates a billing meter event</p>
+}

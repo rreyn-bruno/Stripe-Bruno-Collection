@@ -1,0 +1,37 @@
+meta {
+  name: Pay an invoice
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/v1/invoices/:invoice/pay
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  invoice: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~forgive: <boolean>
+  ~off_session: <boolean>
+  ~paid_out_of_band: <boolean>
+  ~payment_method: <string>
+  ~source: <string>
+}
+
+docs {
+  <p>Stripe automatically creates and then attempts to collect payment on invoices for customers on subscriptions according to your <a href="https://dashboard.stripe.com/account/billing/automatic">subscriptions settings</a>. However, if you’d like to attempt payment on an invoice out of the normal collection schedule or for some other reason, you can do so.</p>
+}

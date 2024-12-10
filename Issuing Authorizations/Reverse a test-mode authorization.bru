@@ -1,0 +1,33 @@
+meta {
+  name: Reverse a test-mode authorization
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/v1/test_helpers/issuing/authorizations/:authorization/reverse
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  authorization: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~reverse_amount: <integer>
+}
+
+docs {
+  <p>Reverse a test-mode Authorization.</p>
+}

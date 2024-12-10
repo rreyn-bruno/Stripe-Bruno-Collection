@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a Session
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/financial_connections/sessions/:session
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  session: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the details of a Financial Connections <code>Session</code></p>
+}

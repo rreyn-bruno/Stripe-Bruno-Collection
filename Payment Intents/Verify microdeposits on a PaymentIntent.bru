@@ -1,0 +1,36 @@
+meta {
+  name: Verify microdeposits on a PaymentIntent
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_intents/:intent/verify_microdeposits
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  intent: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amounts[0]: <integer>
+  ~amounts[1]: <integer>
+  ~client_secret: <string>
+  ~descriptor_code: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Verifies microdeposits on a PaymentIntent object.</p>
+}

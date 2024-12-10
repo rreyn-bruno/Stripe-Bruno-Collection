@@ -1,0 +1,35 @@
+meta {
+  name: Create a transfer
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/transfers
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  amount: <integer>
+  currency: <string>
+  destination: <string>
+  ~description: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~source_transaction: <string>
+  ~source_type: <string>
+  ~transfer_group: <string>
+}
+
+docs {
+  <p>To send funds from your Stripe account to a connected account, you create a new transfer object. Your <a href="#balance">Stripe balance</a> must be able to cover the transfer amount, or you’ll receive an “Insufficient Funds” error.</p>
+}

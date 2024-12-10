@@ -1,0 +1,35 @@
+meta {
+  name: Reject an account
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{baseUrl}}/v1/accounts/:account/reject
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  reason: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>With <a href="/docs/connect">Connect</a>, you may flag accounts as suspicious.</p>
+  
+  <p>Test-mode Custom and Express accounts can be rejected at any time. Accounts created using live-mode keys may only be rejected once all balances are zero.</p>
+}

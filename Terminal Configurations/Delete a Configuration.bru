@@ -1,0 +1,27 @@
+meta {
+  name: Delete a Configuration
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/terminal/configurations/:configuration
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  configuration: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Deletes a <code>Configuration</code> object.</p>
+}

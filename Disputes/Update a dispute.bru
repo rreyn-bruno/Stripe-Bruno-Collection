@@ -1,0 +1,62 @@
+meta {
+  name: Update a dispute
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/disputes/:dispute
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  dispute: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~evidence[access_activity_log]: <string>
+  ~evidence[billing_address]: <string>
+  ~evidence[cancellation_policy]: <string>
+  ~evidence[cancellation_policy_disclosure]: <string>
+  ~evidence[cancellation_rebuttal]: <string>
+  ~evidence[customer_communication]: <string>
+  ~evidence[customer_email_address]: <string>
+  ~evidence[customer_name]: <string>
+  ~evidence[customer_purchase_ip]: <string>
+  ~evidence[customer_signature]: <string>
+  ~evidence[duplicate_charge_documentation]: <string>
+  ~evidence[duplicate_charge_explanation]: <string>
+  ~evidence[duplicate_charge_id]: <string>
+  ~evidence[product_description]: <string>
+  ~evidence[receipt]: <string>
+  ~evidence[refund_policy]: <string>
+  ~evidence[refund_policy_disclosure]: <string>
+  ~evidence[refund_refusal_explanation]: <string>
+  ~evidence[service_date]: <string>
+  ~evidence[service_documentation]: <string>
+  ~evidence[shipping_address]: <string>
+  ~evidence[shipping_carrier]: <string>
+  ~evidence[shipping_date]: <string>
+  ~evidence[shipping_documentation]: <string>
+  ~evidence[shipping_tracking_number]: <string>
+  ~evidence[uncategorized_file]: <string>
+  ~evidence[uncategorized_text]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~submit: <boolean>
+}
+
+docs {
+  <p>When you get a dispute, contacting your customer is always the best first step. If that doesn’t work, you can submit evidence to help us resolve the dispute in your favor. You can do this in your <a href="https://dashboard.stripe.com/disputes">dashboard</a>, but if you prefer, you can use the API to submit evidence programmatically.</p>
+  
+  <p>Depending on your dispute type, different evidence fields will give you a better chance of winning your dispute. To figure out which evidence fields to provide, see our <a href="/docs/disputes/categories">guide to dispute types</a>.</p>
+}

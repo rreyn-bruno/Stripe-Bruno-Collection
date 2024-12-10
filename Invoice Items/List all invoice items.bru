@@ -1,0 +1,38 @@
+meta {
+  name: List all invoice items
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/invoiceitems
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~customer: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~invoice: <string>
+  ~limit: <integer>
+  ~pending: <boolean>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of your invoice items. Invoice items are returned sorted by creation date, with the most recently created invoice items appearing first.</p>
+}

@@ -1,0 +1,35 @@
+meta {
+  name: List all transfer reversals
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/transfers/:id/reversals
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>You can see a list of the reversals belonging to a specific transfer. Note that the 10 most recent reversals are always available by default on the transfer object. If you need more than those 10, you can use this API method and the <code>limit</code> and <code>starting_after</code> parameters to page through additional reversals.</p>
+}

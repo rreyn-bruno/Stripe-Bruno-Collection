@@ -1,0 +1,33 @@
+meta {
+  name: Finalize a quote
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/v1/quotes/:quote/finalize
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  quote: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~expires_at: <unix-time>
+}
+
+docs {
+  <p>Finalizes the quote.</p>
+}

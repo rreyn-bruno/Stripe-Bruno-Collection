@@ -1,0 +1,39 @@
+meta {
+  name: Update a personalization design
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/issuing/personalization_designs/:personalization_design
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  personalization_design: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~carrier_text[footer_body]: <string>
+  ~carrier_text[footer_title]: <string>
+  ~carrier_text[header_body]: <string>
+  ~carrier_text[header_title]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~physical_bundle: <string>
+  ~preferences[is_default]: <boolean>
+  ~transfer_lookup_key: <boolean>
+}
+
+docs {
+  <p>Updates a card personalization object.</p>
+}

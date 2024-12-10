@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a registration
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/tax/registrations/:id
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a Tax <code>Registration</code> object.</p>
+}

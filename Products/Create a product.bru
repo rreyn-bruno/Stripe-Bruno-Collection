@@ -1,0 +1,52 @@
+meta {
+  name: Create a product
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/products
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  name: <string>
+  ~active: <boolean>
+  ~default_price_data[currency]: <string>
+  ~default_price_data[currency_options]: <object>
+  ~default_price_data[recurring][interval]: <string>
+  ~default_price_data[recurring][interval_count]: <integer>
+  ~default_price_data[tax_behavior]: <string>
+  ~default_price_data[unit_amount]: <integer>
+  ~default_price_data[unit_amount_decimal]: <decimal>
+  ~description: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~id: <string>
+  ~images[0]: <string>
+  ~images[1]: <string>
+  ~marketing_features[0][name]: <string>
+  ~marketing_features[1][name]: <string>
+  ~package_dimensions[height]: <number>
+  ~package_dimensions[length]: <number>
+  ~package_dimensions[weight]: <number>
+  ~package_dimensions[width]: <number>
+  ~shippable: <boolean>
+  ~statement_descriptor: <string>
+  ~tax_code: <string>
+  ~unit_label: <string>
+  ~url: <string>
+}
+
+docs {
+  <p>Creates a new product object.</p>
+}

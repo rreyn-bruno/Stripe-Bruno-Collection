@@ -1,0 +1,38 @@
+meta {
+  name: Create a report run
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/reporting/report_runs
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  report_type: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~parameters[columns][0]: <string>
+  ~parameters[columns][1]: <string>
+  ~parameters[connected_account]: <string>
+  ~parameters[currency]: <string>
+  ~parameters[interval_end]: <unix-time>
+  ~parameters[interval_start]: <unix-time>
+  ~parameters[payout]: <string>
+  ~parameters[reporting_category]: <string>
+  ~parameters[timezone]: <string>
+}
+
+docs {
+  <p>Creates a new object and begin running the report. (Certain report types require a <a href="https://stripe.com/docs/keys#test-live-modes">live-mode API key</a>.)</p>
+}

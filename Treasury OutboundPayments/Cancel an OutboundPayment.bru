@@ -1,0 +1,32 @@
+meta {
+  name: Cancel an OutboundPayment
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/outbound_payments/:id/cancel
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Cancel an OutboundPayment.</p>
+}

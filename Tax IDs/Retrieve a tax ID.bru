@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a tax ID
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/v1/tax_ids/:id
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves an account or customer <code>tax_id</code> object.</p>
+}

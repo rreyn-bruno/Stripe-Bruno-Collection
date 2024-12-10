@@ -1,0 +1,33 @@
+meta {
+  name: Update a top-up
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/topups/:topup
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  topup: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~description: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the metadata of a top-up. Other top-up details are not editable by design.</p>
+}

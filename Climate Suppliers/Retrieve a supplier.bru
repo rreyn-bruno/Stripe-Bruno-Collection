@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a supplier
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/climate/suppliers/:supplier
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  supplier: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a Climate supplier object.</p>
+}

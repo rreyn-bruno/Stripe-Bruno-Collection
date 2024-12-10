@@ -1,0 +1,235 @@
+meta {
+  name: Create a PaymentIntent
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_intents
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  amount: <integer>
+  currency: <string>
+  ~application_fee_amount: <integer>
+  ~automatic_payment_methods[enabled]: <boolean>
+  ~automatic_payment_methods[allow_redirects]: <string>
+  ~capture_method: <string>
+  ~confirm: <boolean>
+  ~confirmation_method: <string>
+  ~confirmation_token: <string>
+  ~customer: <string>
+  ~description: <string>
+  ~error_on_requires_action: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~mandate: <string>
+  ~mandate_data[customer_acceptance][type]: <string>
+  ~mandate_data[customer_acceptance][accepted_at]: <unix-time>
+  ~mandate_data[customer_acceptance][online][ip_address]: <string>
+  ~mandate_data[customer_acceptance][online][user_agent]: <string>
+  ~on_behalf_of: <string>
+  ~payment_method: <string>
+  ~payment_method_configuration: <string>
+  ~payment_method_data[type]: <string>
+  ~payment_method_data[acss_debit][account_number]: <string>
+  ~payment_method_data[acss_debit][institution_number]: <string>
+  ~payment_method_data[acss_debit][transit_number]: <string>
+  ~payment_method_data[au_becs_debit][account_number]: <string>
+  ~payment_method_data[au_becs_debit][bsb_number]: <string>
+  ~payment_method_data[bacs_debit][account_number]: <string>
+  ~payment_method_data[bacs_debit][sort_code]: <string>
+  ~payment_method_data[billing_details][address][city]: <string>
+  ~payment_method_data[billing_details][address][country]: <string>
+  ~payment_method_data[billing_details][address][line1]: <string>
+  ~payment_method_data[billing_details][address][line2]: <string>
+  ~payment_method_data[billing_details][address][postal_code]: <string>
+  ~payment_method_data[billing_details][address][state]: <string>
+  ~payment_method_data[billing_details][email]: <string>
+  ~payment_method_data[billing_details][name]: <string>
+  ~payment_method_data[billing_details][phone]: <string>
+  ~payment_method_data[boleto][tax_id]: <string>
+  ~payment_method_data[eps][bank]: <string>
+  ~payment_method_data[fpx][bank]: <string>
+  ~payment_method_data[ideal][bank]: <string>
+  ~payment_method_data[klarna][dob][day]: <integer>
+  ~payment_method_data[klarna][dob][month]: <integer>
+  ~payment_method_data[klarna][dob][year]: <integer>
+  ~payment_method_data[metadata]: <object>
+  ~payment_method_data[p24][bank]: <string>
+  ~payment_method_data[radar_options][session]: <string>
+  ~payment_method_data[sepa_debit][iban]: <string>
+  ~payment_method_data[sofort][country]: <string>
+  ~payment_method_data[us_bank_account][account_holder_type]: <string>
+  ~payment_method_data[us_bank_account][account_number]: <string>
+  ~payment_method_data[us_bank_account][account_type]: <string>
+  ~payment_method_data[us_bank_account][financial_connections_account]: <string>
+  ~payment_method_data[us_bank_account][routing_number]: <string>
+  ~payment_method_options[acss_debit][mandate_options][custom_mandate_url]: <string>
+  ~payment_method_options[acss_debit][mandate_options][interval_description]: <string>
+  ~payment_method_options[acss_debit][mandate_options][payment_schedule]: <string>
+  ~payment_method_options[acss_debit][mandate_options][transaction_type]: <string>
+  ~payment_method_options[acss_debit][setup_future_usage]: <string>
+  ~payment_method_options[acss_debit][verification_method]: <string>
+  ~payment_method_options[affirm][capture_method]: <string>
+  ~payment_method_options[affirm][preferred_locale]: <string>
+  ~payment_method_options[affirm][setup_future_usage]: <string>
+  ~payment_method_options[afterpay_clearpay][capture_method]: <string>
+  ~payment_method_options[afterpay_clearpay][reference]: <string>
+  ~payment_method_options[afterpay_clearpay][setup_future_usage]: <string>
+  ~payment_method_options[alipay][setup_future_usage]: <string>
+  ~payment_method_options[amazon_pay][capture_method]: <string>
+  ~payment_method_options[amazon_pay][setup_future_usage]: <string>
+  ~payment_method_options[au_becs_debit][setup_future_usage]: <string>
+  ~payment_method_options[bacs_debit][setup_future_usage]: <string>
+  ~payment_method_options[bancontact][preferred_language]: <string>
+  ~payment_method_options[bancontact][setup_future_usage]: <string>
+  ~payment_method_options[blik][code]: <string>
+  ~payment_method_options[blik][setup_future_usage]: <string>
+  ~payment_method_options[boleto][expires_after_days]: <integer>
+  ~payment_method_options[boleto][setup_future_usage]: <string>
+  ~payment_method_options[card][capture_method]: <string>
+  ~payment_method_options[card][cvc_token]: <string>
+  ~payment_method_options[card][installments][enabled]: <boolean>
+  ~payment_method_options[card][installments][plan][count]: <integer>
+  ~payment_method_options[card][installments][plan][interval]: <string>
+  ~payment_method_options[card][installments][plan][type]: <string>
+  ~payment_method_options[card][mandate_options][amount]: <integer>
+  ~payment_method_options[card][mandate_options][amount_type]: <string>
+  ~payment_method_options[card][mandate_options][interval]: <string>
+  ~payment_method_options[card][mandate_options][reference]: <string>
+  ~payment_method_options[card][mandate_options][start_date]: <unix-time>
+  ~payment_method_options[card][mandate_options][description]: <string>
+  ~payment_method_options[card][mandate_options][end_date]: <unix-time>
+  ~payment_method_options[card][mandate_options][interval_count]: <integer>
+  ~payment_method_options[card][mandate_options][supported_types][0]: <string>
+  ~payment_method_options[card][mandate_options][supported_types][1]: <string>
+  ~payment_method_options[card][network]: <string>
+  ~payment_method_options[card][request_extended_authorization]: <string>
+  ~payment_method_options[card][request_incremental_authorization]: <string>
+  ~payment_method_options[card][request_multicapture]: <string>
+  ~payment_method_options[card][request_overcapture]: <string>
+  ~payment_method_options[card][request_three_d_secure]: <string>
+  ~payment_method_options[card][require_cvc_recollection]: <boolean>
+  ~payment_method_options[card][setup_future_usage]: <string>
+  ~payment_method_options[card][statement_descriptor_suffix_kana]: <string>
+  ~payment_method_options[card][statement_descriptor_suffix_kanji]: <string>
+  ~payment_method_options[card][three_d_secure][cryptogram]: <string>
+  ~payment_method_options[card][three_d_secure][transaction_id]: <string>
+  ~payment_method_options[card][three_d_secure][version]: <string>
+  ~payment_method_options[card][three_d_secure][ares_trans_status]: <string>
+  ~payment_method_options[card][three_d_secure][electronic_commerce_indicator]: <string>
+  ~payment_method_options[card][three_d_secure][exemption_indicator]: <string>
+  ~payment_method_options[card][three_d_secure][network_options][cartes_bancaires][cb_avalgo]: <string>
+  ~payment_method_options[card][three_d_secure][network_options][cartes_bancaires][cb_exemption]: <string>
+  ~payment_method_options[card][three_d_secure][network_options][cartes_bancaires][cb_score]: <integer>
+  ~payment_method_options[card][three_d_secure][requestor_challenge_indicator]: <string>
+  ~payment_method_options[card_present][request_extended_authorization]: <boolean>
+  ~payment_method_options[card_present][request_incremental_authorization_support]: <boolean>
+  ~payment_method_options[cashapp][capture_method]: <string>
+  ~payment_method_options[cashapp][setup_future_usage]: <string>
+  ~payment_method_options[customer_balance][bank_transfer][type]: <string>
+  ~payment_method_options[customer_balance][bank_transfer][eu_bank_transfer][country]: <string>
+  ~payment_method_options[customer_balance][bank_transfer][requested_address_types][0]: <string>
+  ~payment_method_options[customer_balance][bank_transfer][requested_address_types][1]: <string>
+  ~payment_method_options[customer_balance][funding_type]: <string>
+  ~payment_method_options[customer_balance][setup_future_usage]: <string>
+  ~payment_method_options[eps][setup_future_usage]: <string>
+  ~payment_method_options[fpx][setup_future_usage]: <string>
+  ~payment_method_options[giropay][setup_future_usage]: <string>
+  ~payment_method_options[grabpay][setup_future_usage]: <string>
+  ~payment_method_options[ideal][setup_future_usage]: <string>
+  ~payment_method_options[klarna][capture_method]: <string>
+  ~payment_method_options[klarna][preferred_locale]: <string>
+  ~payment_method_options[klarna][setup_future_usage]: <string>
+  ~payment_method_options[konbini][confirmation_number]: <string>
+  ~payment_method_options[konbini][expires_after_days]: <integer>
+  ~payment_method_options[konbini][expires_at]: <unix-time>
+  ~payment_method_options[konbini][product_description]: <string>
+  ~payment_method_options[konbini][setup_future_usage]: <string>
+  ~payment_method_options[link][capture_method]: <string>
+  ~payment_method_options[link][setup_future_usage]: <string>
+  ~payment_method_options[mobilepay][capture_method]: <string>
+  ~payment_method_options[mobilepay][setup_future_usage]: <string>
+  ~payment_method_options[oxxo][expires_after_days]: <integer>
+  ~payment_method_options[oxxo][setup_future_usage]: <string>
+  ~payment_method_options[p24][setup_future_usage]: <string>
+  ~payment_method_options[p24][tos_shown_and_accepted]: <boolean>
+  ~payment_method_options[paynow][setup_future_usage]: <string>
+  ~payment_method_options[paypal][capture_method]: <string>
+  ~payment_method_options[paypal][preferred_locale]: <string>
+  ~payment_method_options[paypal][reference]: <string>
+  ~payment_method_options[paypal][risk_correlation_id]: <string>
+  ~payment_method_options[paypal][setup_future_usage]: <string>
+  ~payment_method_options[pix][expires_after_seconds]: <integer>
+  ~payment_method_options[pix][expires_at]: <unix-time>
+  ~payment_method_options[pix][setup_future_usage]: <string>
+  ~payment_method_options[promptpay][setup_future_usage]: <string>
+  ~payment_method_options[revolut_pay][capture_method]: <string>
+  ~payment_method_options[revolut_pay][setup_future_usage]: <string>
+  ~payment_method_options[sepa_debit][setup_future_usage]: <string>
+  ~payment_method_options[sofort][preferred_language]: <string>
+  ~payment_method_options[sofort][setup_future_usage]: <string>
+  ~payment_method_options[swish][reference]: <string>
+  ~payment_method_options[swish][setup_future_usage]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][permissions][0]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][permissions][1]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][prefetch][0]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][prefetch][1]: <string>
+  ~payment_method_options[us_bank_account][financial_connections][return_url]: <string>
+  ~payment_method_options[us_bank_account][mandate_options][collection_method]: <string>
+  ~payment_method_options[us_bank_account][networks][requested][0]: <string>
+  ~payment_method_options[us_bank_account][networks][requested][1]: <string>
+  ~payment_method_options[us_bank_account][preferred_settlement_speed]: <string>
+  ~payment_method_options[us_bank_account][setup_future_usage]: <string>
+  ~payment_method_options[us_bank_account][verification_method]: <string>
+  ~payment_method_options[wechat_pay][client]: <string>
+  ~payment_method_options[wechat_pay][app_id]: <string>
+  ~payment_method_options[wechat_pay][setup_future_usage]: <string>
+  ~payment_method_options[zip][setup_future_usage]: <string>
+  ~payment_method_types[0]: <string>
+  ~payment_method_types[1]: <string>
+  ~radar_options[session]: <string>
+  ~receipt_email: <string>
+  ~return_url: <string>
+  ~setup_future_usage: <string>
+  ~shipping[address][city]: <string>
+  ~shipping[address][country]: <string>
+  ~shipping[address][line1]: <string>
+  ~shipping[address][line2]: <string>
+  ~shipping[address][postal_code]: <string>
+  ~shipping[address][state]: <string>
+  ~shipping[name]: <string>
+  ~shipping[carrier]: <string>
+  ~shipping[phone]: <string>
+  ~shipping[tracking_number]: <string>
+  ~statement_descriptor: <string>
+  ~statement_descriptor_suffix: <string>
+  ~transfer_data[destination]: <string>
+  ~transfer_data[amount]: <integer>
+  ~transfer_group: <string>
+  ~use_stripe_sdk: <boolean>
+}
+
+docs {
+  <p>Creates a PaymentIntent object.</p>
+  
+  <p>After the PaymentIntent is created, attach a payment method and <a href="/docs/api/payment_intents/confirm">confirm</a>
+  to continue the payment. Learn more about <a href="/docs/payments/payment-intents">the available payment flows
+  with the Payment Intents API</a>.</p>
+  
+  <p>When you use <code>confirm=true</code> during creation, it’s equivalent to creating
+  and confirming the PaymentIntent in the same call. You can use any parameters
+  available in the <a href="/docs/api/payment_intents/confirm">confirm API</a> when you supply
+  <code>confirm=true</code>.</p>
+}

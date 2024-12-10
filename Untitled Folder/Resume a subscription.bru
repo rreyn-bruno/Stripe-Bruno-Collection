@@ -1,0 +1,35 @@
+meta {
+  name: Resume a subscription
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/subscriptions/:subscription/resume
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  subscription: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~billing_cycle_anchor: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~proration_behavior: <string>
+  ~proration_date: <unix-time>
+}
+
+docs {
+  <p>Initiates resumption of a paused subscription, optionally resetting the billing cycle anchor and creating prorations. If a resumption invoice is generated, it must be paid or marked uncollectible before the subscription will be unpaused. If payment succeeds the subscription will become <code>active</code>, and if payment fails the subscription will be <code>past_due</code>. The resumption invoice will void automatically if not paid by the expiration date.</p>
+}

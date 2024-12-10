@@ -1,0 +1,33 @@
+meta {
+  name: Update a token status
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/issuing/tokens/:token
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  token: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  status: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Attempts to update the specified Issuing <code>Token</code> object to the status specified.</p>
+}

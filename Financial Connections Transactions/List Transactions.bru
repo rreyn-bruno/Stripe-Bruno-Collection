@@ -1,0 +1,37 @@
+meta {
+  name: List Transactions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/financial_connections/transactions?account=<string>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  account: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~transacted_at[gt]: <integer>
+  ~transacted_at[gte]: <integer>
+  ~transacted_at[lt]: <integer>
+  ~transacted_at[lte]: <integer>
+  ~transaction_refresh[after]: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of Financial Connections <code>Transaction</code> objects.</p>
+}

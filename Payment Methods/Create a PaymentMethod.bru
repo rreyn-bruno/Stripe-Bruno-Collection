@@ -1,0 +1,70 @@
+meta {
+  name: Create a PaymentMethod
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_methods
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  type: <string>
+  ~acss_debit[account_number]: <string>
+  ~acss_debit[institution_number]: <string>
+  ~acss_debit[transit_number]: <string>
+  ~au_becs_debit[account_number]: <string>
+  ~au_becs_debit[bsb_number]: <string>
+  ~bacs_debit[account_number]: <string>
+  ~bacs_debit[sort_code]: <string>
+  ~billing_details[address][city]: <string>
+  ~billing_details[address][country]: <string>
+  ~billing_details[address][line1]: <string>
+  ~billing_details[address][line2]: <string>
+  ~billing_details[address][postal_code]: <string>
+  ~billing_details[address][state]: <string>
+  ~billing_details[email]: <string>
+  ~billing_details[name]: <string>
+  ~billing_details[phone]: <string>
+  ~boleto[tax_id]: <string>
+  ~card[exp_month]: <integer>
+  ~card[exp_year]: <integer>
+  ~card[number]: <string>
+  ~card[cvc]: <string>
+  ~card[networks][preferred]: <string>
+  ~customer: <string>
+  ~eps[bank]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~fpx[bank]: <string>
+  ~ideal[bank]: <string>
+  ~klarna[dob][day]: <integer>
+  ~klarna[dob][month]: <integer>
+  ~klarna[dob][year]: <integer>
+  ~p24[bank]: <string>
+  ~payment_method: <string>
+  ~radar_options[session]: <string>
+  ~sepa_debit[iban]: <string>
+  ~sofort[country]: <string>
+  ~us_bank_account[account_holder_type]: <string>
+  ~us_bank_account[account_number]: <string>
+  ~us_bank_account[account_type]: <string>
+  ~us_bank_account[financial_connections_account]: <string>
+  ~us_bank_account[routing_number]: <string>
+}
+
+docs {
+  <p>Creates a PaymentMethod object. Read the <a href="/docs/stripe-js/reference#stripe-create-payment-method">Stripe.js reference</a> to learn how to create PaymentMethods via Stripe.js.</p>
+  
+  <p>Instead of creating a PaymentMethod directly, we recommend using the <a href="/docs/payments/accept-a-payment">PaymentIntents</a> API to accept a payment immediately or the <a href="/docs/payments/save-and-reuse">SetupIntent</a> API to collect payment method details ahead of a future payment.</p>
+}

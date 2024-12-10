@@ -1,0 +1,33 @@
+meta {
+  name: Test mode- Return an OutboundPayment
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/test_helpers/treasury/outbound_payments/:id/return
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~returned_details[code]: <string>
+}
+
+docs {
+  <p>Transitions a test mode created OutboundPayment to the <code>returned</code> status. The OutboundPayment must already be in the <code>processing</code> state.</p>
+}

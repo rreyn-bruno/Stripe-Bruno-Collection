@@ -1,0 +1,33 @@
+meta {
+  name: Update a payment method domain
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_method_domains/:payment_method_domain
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  payment_method_domain: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~enabled: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates an existing payment method domain.</p>
+}

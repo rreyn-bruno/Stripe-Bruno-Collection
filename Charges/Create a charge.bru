@@ -1,0 +1,71 @@
+meta {
+  name: Create a charge
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/charges
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  amount: <integer>
+  currency: <string>
+  ~application_fee: <integer>
+  ~application_fee_amount: <integer>
+  ~capture: <boolean>
+  ~card[exp_month]: <integer>
+  ~card[exp_year]: <integer>
+  ~card[number]: <string>
+  ~card[address_city]: <string>
+  ~card[address_country]: <string>
+  ~card[address_line1]: <string>
+  ~card[address_line2]: <string>
+  ~card[address_state]: <string>
+  ~card[address_zip]: <string>
+  ~card[cvc]: <string>
+  ~card[metadata]: <object>
+  ~card[name]: <string>
+  ~card[object]: <string>
+  ~customer: <string>
+  ~description: <string>
+  ~destination[account]: <string>
+  ~destination[amount]: <integer>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~on_behalf_of: <string>
+  ~radar_options[session]: <string>
+  ~receipt_email: <string>
+  ~shipping[address][city]: <string>
+  ~shipping[address][country]: <string>
+  ~shipping[address][line1]: <string>
+  ~shipping[address][line2]: <string>
+  ~shipping[address][postal_code]: <string>
+  ~shipping[address][state]: <string>
+  ~shipping[name]: <string>
+  ~shipping[carrier]: <string>
+  ~shipping[phone]: <string>
+  ~shipping[tracking_number]: <string>
+  ~source: <string>
+  ~statement_descriptor: <string>
+  ~statement_descriptor_suffix: <string>
+  ~transfer_data[destination]: <string>
+  ~transfer_data[amount]: <integer>
+  ~transfer_group: <string>
+}
+
+docs {
+  <p>This method is no longer recommended—use the <a href="/docs/api/payment_intents">Payment Intents API</a>
+  to initiate a new payment instead. Confirmation of the PaymentIntent creates the <code>Charge</code>
+  object used to request payment.</p>
+}

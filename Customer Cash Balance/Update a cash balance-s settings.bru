@@ -1,0 +1,33 @@
+meta {
+  name: Update a cash balance-s settings
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/customers/:customer/cash_balance
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  customer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~settings[reconciliation_mode]: <string>
+}
+
+docs {
+  <p>Changes the settings on a customer’s cash balance.</p>
+}

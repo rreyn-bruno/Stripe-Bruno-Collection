@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a price
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/v1/prices/:price
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  price: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the price with the given ID.</p>
+}

@@ -1,0 +1,35 @@
+meta {
+  name: Retrieve a Session-s line items
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/v1/checkout/sessions/:session/line_items
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+params:path {
+  session: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>When retrieving a Checkout Session, there is an includable <strong>line_items</strong> property containing the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.</p>
+}

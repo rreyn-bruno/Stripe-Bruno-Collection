@@ -1,0 +1,46 @@
+meta {
+  name: Create a reversal tax transaction
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/tax/transactions/create_reversal
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  mode: <string>
+  original_transaction: <string>
+  reference: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~flat_amount: <integer>
+  ~line_items[0][amount]: <integer>
+  ~line_items[0][amount_tax]: <integer>
+  ~line_items[0][original_line_item]: <string>
+  ~line_items[0][reference]: <string>
+  ~line_items[0][metadata]: <object>
+  ~line_items[0][quantity]: <integer>
+  ~line_items[1][amount]: <integer>
+  ~line_items[1][amount_tax]: <integer>
+  ~line_items[1][original_line_item]: <string>
+  ~line_items[1][reference]: <string>
+  ~line_items[1][metadata]: <object>
+  ~line_items[1][quantity]: <integer>
+  ~shipping_cost[amount]: <integer>
+  ~shipping_cost[amount_tax]: <integer>
+}
+
+docs {
+  <p>Partially or fully reverses a previously created <code>Transaction</code>.</p>
+}

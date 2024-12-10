@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve an authorization
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/issuing/authorizations/:authorization
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  authorization: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves an Issuing <code>Authorization</code> object.</p>
+}

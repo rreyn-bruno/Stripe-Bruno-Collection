@@ -1,0 +1,37 @@
+meta {
+  name: Listing all issuing tokens for a card
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/issuing/tokens?card=<string>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  card: <string>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~status: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Lists all Issuing <code>Token</code> objects for a given card.</p>
+}

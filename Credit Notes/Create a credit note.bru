@@ -1,0 +1,81 @@
+meta {
+  name: Create a credit note
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/credit_notes
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  invoice: <string>
+  ~amount: <integer>
+  ~credit_amount: <integer>
+  ~effective_at: <unix-time>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~lines[0][type]: <string>
+  ~lines[0][amount]: <integer>
+  ~lines[0][description]: <string>
+  ~lines[0][invoice_line_item]: <string>
+  ~lines[0][quantity]: <integer>
+  ~lines[0][tax_amounts][0][amount]: <integer>
+  ~lines[0][tax_amounts][0][tax_rate]: <string>
+  ~lines[0][tax_amounts][0][taxable_amount]: <integer>
+  ~lines[0][tax_amounts][1][amount]: <integer>
+  ~lines[0][tax_amounts][1][tax_rate]: <string>
+  ~lines[0][tax_amounts][1][taxable_amount]: <integer>
+  ~lines[0][tax_rates][0]: <string>
+  ~lines[0][tax_rates][1]: <string>
+  ~lines[0][unit_amount]: <integer>
+  ~lines[0][unit_amount_decimal]: <decimal>
+  ~lines[1][type]: <string>
+  ~lines[1][amount]: <integer>
+  ~lines[1][description]: <string>
+  ~lines[1][invoice_line_item]: <string>
+  ~lines[1][quantity]: <integer>
+  ~lines[1][tax_amounts][0][amount]: <integer>
+  ~lines[1][tax_amounts][0][tax_rate]: <string>
+  ~lines[1][tax_amounts][0][taxable_amount]: <integer>
+  ~lines[1][tax_amounts][1][amount]: <integer>
+  ~lines[1][tax_amounts][1][tax_rate]: <string>
+  ~lines[1][tax_amounts][1][taxable_amount]: <integer>
+  ~lines[1][tax_rates][0]: <string>
+  ~lines[1][tax_rates][1]: <string>
+  ~lines[1][unit_amount]: <integer>
+  ~lines[1][unit_amount_decimal]: <decimal>
+  ~memo: <string>
+  ~out_of_band_amount: <integer>
+  ~reason: <string>
+  ~refund: <string>
+  ~refund_amount: <integer>
+  ~shipping_cost[shipping_rate]: <string>
+}
+
+docs {
+  <p>Issue a credit note to adjust the amount of a finalized invoice. For a <code>status=open</code> invoice, a credit note reduces
+  its <code>amount_due</code>. For a <code>status=paid</code> invoice, a credit note does not affect its <code>amount_due</code>. Instead, it can result
+  in any combination of the following:</p>
+  
+  <ul>
+  <li>Refund: create a new refund (using <code>refund_amount</code>) or link an existing refund (using <code>refund</code>).</li>
+  <li>Customer balance credit: credit the customer’s balance (using <code>credit_amount</code>) which will be automatically applied to their next invoice when it’s finalized.</li>
+  <li>Outside of Stripe credit: record the amount that is or will be credited outside of Stripe (using <code>out_of_band_amount</code>).</li>
+  </ul>
+  
+  <p>For post-payment credit notes the sum of the refund, credit and outside of Stripe amounts must equal the credit note total.</p>
+  
+  <p>You may issue multiple credit notes for an invoice. Each credit note will increment the invoice’s <code>pre_payment_credit_notes_amount</code>
+  or <code>post_payment_credit_notes_amount</code> depending on its <code>status</code> at the time of credit note creation.</p>
+}

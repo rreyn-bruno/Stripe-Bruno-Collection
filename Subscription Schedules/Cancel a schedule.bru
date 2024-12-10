@@ -1,0 +1,34 @@
+meta {
+  name: Cancel a schedule
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/subscription_schedules/:schedule/cancel
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  schedule: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~invoice_now: <boolean>
+  ~prorate: <boolean>
+}
+
+docs {
+  <p>Cancels a subscription schedule and its associated subscription immediately (if the subscription schedule has an active subscription). A subscription schedule can only be canceled if its status is <code>not_started</code> or <code>active</code>.</p>
+}

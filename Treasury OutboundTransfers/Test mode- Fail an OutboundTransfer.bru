@@ -1,0 +1,32 @@
+meta {
+  name: Test mode- Fail an OutboundTransfer
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/test_helpers/treasury/outbound_transfers/:outbound_transfer/fail
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  outbound_transfer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Transitions a test mode created OutboundTransfer to the <code>failed</code> status. The OutboundTransfer must already be in the <code>processing</code> state.</p>
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Delete a tax ID
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{baseUrl}}/v1/tax_ids/:id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Deletes an existing account or customer <code>tax_id</code> object.</p>
+}

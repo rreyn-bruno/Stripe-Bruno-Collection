@@ -1,0 +1,34 @@
+meta {
+  name: Update a promotion code
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/promotion_codes/:promotion_code
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  promotion_code: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~active: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~restrictions[currency_options]: <object>
+}
+
+docs {
+  <p>Updates the specified promotion code by setting the values of the parameters passed. Most fields are, by design, not editable.</p>
+}

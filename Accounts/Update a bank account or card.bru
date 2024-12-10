@@ -1,0 +1,50 @@
+meta {
+  name: Update a bank account or card
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{baseUrl}}/v1/accounts/:account/external_accounts/:id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  account: <string>
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~account_holder_name: <string>
+  ~account_holder_type: <string>
+  ~account_type: <string>
+  ~address_city: <string>
+  ~address_country: <string>
+  ~address_line1: <string>
+  ~address_line2: <string>
+  ~address_state: <string>
+  ~address_zip: <string>
+  ~default_for_currency: <boolean>
+  ~documents[bank_account_ownership_verification][files][0]: <string>
+  ~documents[bank_account_ownership_verification][files][1]: <string>
+  ~exp_month: <string>
+  ~exp_year: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~name: <string>
+}
+
+docs {
+  <p>Updates the metadata, account holder name, account holder type of a bank account belonging to a <a href="/docs/connect/custom-accounts">Custom account</a>, and optionally sets it as the default for its currency. Other bank account details are not editable by design.</p>
+  
+  <p>You can re-enable a disabled bank account by performing an update call without providing any arguments or changes.</p>
+}

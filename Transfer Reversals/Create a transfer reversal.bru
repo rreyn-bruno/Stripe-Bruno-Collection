@@ -1,0 +1,39 @@
+meta {
+  name: Create a transfer reversal
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/transfers/:id/reversals
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount: <integer>
+  ~description: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~refund_application_fee: <boolean>
+}
+
+docs {
+  <p>When you create a new reversal, you must specify a transfer to create it on.</p>
+  
+  <p>When reversing transfers, you can optionally reverse part of the transfer. You can do so as many times as you wish until the entire transfer has been reversed.</p>
+  
+  <p>Once entirely reversed, a transfer can’t be reversed again. This method will return an error when called on an already-reversed transfer, or when trying to reverse more money than is left on a transfer.</p>
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Cancel a payout
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/payouts/:payout/cancel
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  payout: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>You can cancel a previously created payout if its status is <code>pending</code>. Stripe refunds the funds to your available balance. You can’t cancel automatic Stripe payouts.</p>
+}

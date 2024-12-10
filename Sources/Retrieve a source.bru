@@ -1,0 +1,33 @@
+meta {
+  name: Retrieve a source
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/v1/sources/:source
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~client_secret: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  source: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves an existing source object. Supply the unique source ID from a source creation request and Stripe will return the corresponding up-to-date source object information.</p>
+}

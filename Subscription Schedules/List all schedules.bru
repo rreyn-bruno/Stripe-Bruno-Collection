@@ -1,0 +1,49 @@
+meta {
+  name: List all schedules
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/subscription_schedules
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~canceled_at[gt]: <integer>
+  ~canceled_at[gte]: <integer>
+  ~canceled_at[lt]: <integer>
+  ~canceled_at[lte]: <integer>
+  ~completed_at[gt]: <integer>
+  ~completed_at[gte]: <integer>
+  ~completed_at[lt]: <integer>
+  ~completed_at[lte]: <integer>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~customer: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~released_at[gt]: <integer>
+  ~released_at[gte]: <integer>
+  ~released_at[lt]: <integer>
+  ~released_at[lte]: <integer>
+  ~scheduled: <boolean>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the list of your subscription schedules.</p>
+}

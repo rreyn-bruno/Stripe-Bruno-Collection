@@ -1,0 +1,31 @@
+meta {
+  name: Create a customer session
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/customer_sessions
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  components[buy_button][enabled]: <boolean>
+  components[pricing_table][enabled]: <boolean>
+  customer: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates a customer session object that includes a single-use client secret that you can use on your front-end to grant client-side API access for certain customer resources.</p>
+}

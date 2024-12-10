@@ -1,0 +1,30 @@
+meta {
+  name: Create a payment method domain
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_method_domains
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  domain_name: <string>
+  ~enabled: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates a payment method domain.</p>
+}

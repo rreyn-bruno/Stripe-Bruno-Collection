@@ -1,0 +1,31 @@
+meta {
+  name: Creates a billing meter event adjustment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/billing/meter_event_adjustments
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  event_name: <string>
+  type: <string>
+  ~cancel[identifier]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates a billing meter event adjustment</p>
+}

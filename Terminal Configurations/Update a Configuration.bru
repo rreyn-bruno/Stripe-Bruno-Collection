@@ -1,0 +1,106 @@
+meta {
+  name: Update a Configuration
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/terminal/configurations/:configuration
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  configuration: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~bbpos_wisepos_e[splashscreen]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~name: <string>
+  ~offline[enabled]: <boolean>
+  ~tipping[aud][fixed_amounts][0]: <integer>
+  ~tipping[aud][fixed_amounts][1]: <integer>
+  ~tipping[aud][percentages][0]: <integer>
+  ~tipping[aud][percentages][1]: <integer>
+  ~tipping[aud][smart_tip_threshold]: <integer>
+  ~tipping[cad][fixed_amounts][0]: <integer>
+  ~tipping[cad][fixed_amounts][1]: <integer>
+  ~tipping[cad][percentages][0]: <integer>
+  ~tipping[cad][percentages][1]: <integer>
+  ~tipping[cad][smart_tip_threshold]: <integer>
+  ~tipping[chf][fixed_amounts][0]: <integer>
+  ~tipping[chf][fixed_amounts][1]: <integer>
+  ~tipping[chf][percentages][0]: <integer>
+  ~tipping[chf][percentages][1]: <integer>
+  ~tipping[chf][smart_tip_threshold]: <integer>
+  ~tipping[czk][fixed_amounts][0]: <integer>
+  ~tipping[czk][fixed_amounts][1]: <integer>
+  ~tipping[czk][percentages][0]: <integer>
+  ~tipping[czk][percentages][1]: <integer>
+  ~tipping[czk][smart_tip_threshold]: <integer>
+  ~tipping[dkk][fixed_amounts][0]: <integer>
+  ~tipping[dkk][fixed_amounts][1]: <integer>
+  ~tipping[dkk][percentages][0]: <integer>
+  ~tipping[dkk][percentages][1]: <integer>
+  ~tipping[dkk][smart_tip_threshold]: <integer>
+  ~tipping[eur][fixed_amounts][0]: <integer>
+  ~tipping[eur][fixed_amounts][1]: <integer>
+  ~tipping[eur][percentages][0]: <integer>
+  ~tipping[eur][percentages][1]: <integer>
+  ~tipping[eur][smart_tip_threshold]: <integer>
+  ~tipping[gbp][fixed_amounts][0]: <integer>
+  ~tipping[gbp][fixed_amounts][1]: <integer>
+  ~tipping[gbp][percentages][0]: <integer>
+  ~tipping[gbp][percentages][1]: <integer>
+  ~tipping[gbp][smart_tip_threshold]: <integer>
+  ~tipping[hkd][fixed_amounts][0]: <integer>
+  ~tipping[hkd][fixed_amounts][1]: <integer>
+  ~tipping[hkd][percentages][0]: <integer>
+  ~tipping[hkd][percentages][1]: <integer>
+  ~tipping[hkd][smart_tip_threshold]: <integer>
+  ~tipping[myr][fixed_amounts][0]: <integer>
+  ~tipping[myr][fixed_amounts][1]: <integer>
+  ~tipping[myr][percentages][0]: <integer>
+  ~tipping[myr][percentages][1]: <integer>
+  ~tipping[myr][smart_tip_threshold]: <integer>
+  ~tipping[nok][fixed_amounts][0]: <integer>
+  ~tipping[nok][fixed_amounts][1]: <integer>
+  ~tipping[nok][percentages][0]: <integer>
+  ~tipping[nok][percentages][1]: <integer>
+  ~tipping[nok][smart_tip_threshold]: <integer>
+  ~tipping[nzd][fixed_amounts][0]: <integer>
+  ~tipping[nzd][fixed_amounts][1]: <integer>
+  ~tipping[nzd][percentages][0]: <integer>
+  ~tipping[nzd][percentages][1]: <integer>
+  ~tipping[nzd][smart_tip_threshold]: <integer>
+  ~tipping[sek][fixed_amounts][0]: <integer>
+  ~tipping[sek][fixed_amounts][1]: <integer>
+  ~tipping[sek][percentages][0]: <integer>
+  ~tipping[sek][percentages][1]: <integer>
+  ~tipping[sek][smart_tip_threshold]: <integer>
+  ~tipping[sgd][fixed_amounts][0]: <integer>
+  ~tipping[sgd][fixed_amounts][1]: <integer>
+  ~tipping[sgd][percentages][0]: <integer>
+  ~tipping[sgd][percentages][1]: <integer>
+  ~tipping[sgd][smart_tip_threshold]: <integer>
+  ~tipping[usd][fixed_amounts][0]: <integer>
+  ~tipping[usd][fixed_amounts][1]: <integer>
+  ~tipping[usd][percentages][0]: <integer>
+  ~tipping[usd][percentages][1]: <integer>
+  ~tipping[usd][smart_tip_threshold]: <integer>
+  ~verifone_p400[splashscreen]: <string>
+}
+
+docs {
+  <p>Updates a new <code>Configuration</code> object.</p>
+}

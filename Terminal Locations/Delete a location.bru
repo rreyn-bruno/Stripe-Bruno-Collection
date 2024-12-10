@@ -1,0 +1,27 @@
+meta {
+  name: Delete a location
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/terminal/locations/:location
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  location: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Deletes a <code>Location</code> object.</p>
+}

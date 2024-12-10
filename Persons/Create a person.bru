@@ -1,0 +1,99 @@
+meta {
+  name: Create a person
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/accounts/:account/persons
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~additional_tos_acceptances[account][date]: <unix-time>
+  ~additional_tos_acceptances[account][ip]: <string>
+  ~additional_tos_acceptances[account][user_agent]: <string>
+  ~address[city]: <string>
+  ~address[country]: <string>
+  ~address[line1]: <string>
+  ~address[line2]: <string>
+  ~address[postal_code]: <string>
+  ~address[state]: <string>
+  ~address_kana[city]: <string>
+  ~address_kana[country]: <string>
+  ~address_kana[line1]: <string>
+  ~address_kana[line2]: <string>
+  ~address_kana[postal_code]: <string>
+  ~address_kana[state]: <string>
+  ~address_kana[town]: <string>
+  ~address_kanji[city]: <string>
+  ~address_kanji[country]: <string>
+  ~address_kanji[line1]: <string>
+  ~address_kanji[line2]: <string>
+  ~address_kanji[postal_code]: <string>
+  ~address_kanji[state]: <string>
+  ~address_kanji[town]: <string>
+  ~dob[day]: <integer>
+  ~dob[month]: <integer>
+  ~dob[year]: <integer>
+  ~documents[company_authorization][files][0]: <string>
+  ~documents[company_authorization][files][1]: <string>
+  ~documents[passport][files][0]: <string>
+  ~documents[passport][files][1]: <string>
+  ~documents[visa][files][0]: <string>
+  ~documents[visa][files][1]: <string>
+  ~email: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~first_name: <string>
+  ~first_name_kana: <string>
+  ~first_name_kanji: <string>
+  ~full_name_aliases[0]: <string>
+  ~full_name_aliases[1]: <string>
+  ~gender: <string>
+  ~id_number: <string>
+  ~id_number_secondary: <string>
+  ~last_name: <string>
+  ~last_name_kana: <string>
+  ~last_name_kanji: <string>
+  ~maiden_name: <string>
+  ~nationality: <string>
+  ~person_token: <string>
+  ~phone: <string>
+  ~political_exposure: <string>
+  ~registered_address[city]: <string>
+  ~registered_address[country]: <string>
+  ~registered_address[line1]: <string>
+  ~registered_address[line2]: <string>
+  ~registered_address[postal_code]: <string>
+  ~registered_address[state]: <string>
+  ~relationship[director]: <boolean>
+  ~relationship[executive]: <boolean>
+  ~relationship[legal_guardian]: <boolean>
+  ~relationship[owner]: <boolean>
+  ~relationship[percent_ownership]: <number>
+  ~relationship[representative]: <boolean>
+  ~relationship[title]: <string>
+  ~ssn_last_4: <string>
+  ~verification[additional_document][back]: <string>
+  ~verification[additional_document][front]: <string>
+  ~verification[document][back]: <string>
+  ~verification[document][front]: <string>
+}
+
+docs {
+  <p>Creates a new person.</p>
+}

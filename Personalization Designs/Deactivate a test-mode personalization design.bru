@@ -1,0 +1,32 @@
+meta {
+  name: Deactivate a test-mode personalization design
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/test_helpers/issuing/personalization_designs/:personalization_design/deactivate
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  personalization_design: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the <code>status</code> of the specified testmode personalization design object to <code>inactive</code>.</p>
+}

@@ -1,0 +1,53 @@
+meta {
+  name: Update a source
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/customers/:customer/sources/:id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  customer: <string>
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~account_holder_name: <string>
+  ~account_holder_type: <string>
+  ~address_city: <string>
+  ~address_country: <string>
+  ~address_line1: <string>
+  ~address_line2: <string>
+  ~address_state: <string>
+  ~address_zip: <string>
+  ~exp_month: <string>
+  ~exp_year: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~name: <string>
+  ~owner[address][city]: <string>
+  ~owner[address][country]: <string>
+  ~owner[address][line1]: <string>
+  ~owner[address][line2]: <string>
+  ~owner[address][postal_code]: <string>
+  ~owner[address][state]: <string>
+  ~owner[email]: <string>
+  ~owner[name]: <string>
+  ~owner[phone]: <string>
+}
+
+docs {
+  <p>Update a specified source for a given customer.</p>
+}

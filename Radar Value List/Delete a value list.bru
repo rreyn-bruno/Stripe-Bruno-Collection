@@ -1,0 +1,27 @@
+meta {
+  name: Delete a value list
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/radar/value_lists/:value_list
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  value_list: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Deletes a <code>ValueList</code> object, also deleting any items contained within the value list. To be deleted, a value list must not be referenced in any rules.</p>
+}

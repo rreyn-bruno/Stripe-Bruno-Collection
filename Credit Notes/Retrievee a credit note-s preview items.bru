@@ -1,0 +1,71 @@
+meta {
+  name: Retrievee a credit note-s preview items
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/credit_notes/preview/lines?invoice=<string>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  invoice: <string>
+  ~amount: <integer>
+  ~credit_amount: <integer>
+  ~effective_at: <unix-time>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~lines[0][type]: <string>
+  ~lines[0][amount]: <integer>
+  ~lines[0][description]: <string>
+  ~lines[0][invoice_line_item]: <string>
+  ~lines[0][quantity]: <integer>
+  ~lines[0][tax_amounts][0][amount]: <integer>
+  ~lines[0][tax_amounts][0][tax_rate]: <string>
+  ~lines[0][tax_amounts][0][taxable_amount]: <integer>
+  ~lines[0][tax_amounts][1][amount]: <integer>
+  ~lines[0][tax_amounts][1][tax_rate]: <string>
+  ~lines[0][tax_amounts][1][taxable_amount]: <integer>
+  ~lines[0][tax_rates][0]: <string>
+  ~lines[0][tax_rates][1]: <string>
+  ~lines[0][unit_amount]: <integer>
+  ~lines[0][unit_amount_decimal]: <decimal>
+  ~lines[1][type]: <string>
+  ~lines[1][amount]: <integer>
+  ~lines[1][description]: <string>
+  ~lines[1][invoice_line_item]: <string>
+  ~lines[1][quantity]: <integer>
+  ~lines[1][tax_amounts][0][amount]: <integer>
+  ~lines[1][tax_amounts][0][tax_rate]: <string>
+  ~lines[1][tax_amounts][0][taxable_amount]: <integer>
+  ~lines[1][tax_amounts][1][amount]: <integer>
+  ~lines[1][tax_amounts][1][tax_rate]: <string>
+  ~lines[1][tax_amounts][1][taxable_amount]: <integer>
+  ~lines[1][tax_rates][0]: <string>
+  ~lines[1][tax_rates][1]: <string>
+  ~lines[1][unit_amount]: <integer>
+  ~lines[1][unit_amount_decimal]: <decimal>
+  ~memo: <string>
+  ~out_of_band_amount: <integer>
+  ~reason: <string>
+  ~refund: <string>
+  ~refund_amount: <integer>
+  ~shipping_cost[shipping_rate]: <string>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>When retrieving a credit note preview, you’ll get a <strong>lines</strong> property containing the first handful of those items. This URL you can retrieve the full (paginated) list of line items.</p>
+}

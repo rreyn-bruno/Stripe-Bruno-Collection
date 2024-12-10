@@ -1,0 +1,65 @@
+meta {
+  name: Create a card
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/issuing/cards
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  cardholder: <string>
+  currency: <string>
+  type: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~financial_account: <string>
+  ~personalization_design: <string>
+  ~pin[encrypted_number]: <string>
+  ~replacement_for: <string>
+  ~replacement_reason: <string>
+  ~shipping[address][city]: <string>
+  ~shipping[address][country]: <string>
+  ~shipping[address][line1]: <string>
+  ~shipping[address][postal_code]: <string>
+  ~shipping[address][line2]: <string>
+  ~shipping[address][state]: <string>
+  ~shipping[name]: <string>
+  ~shipping[customs][eori_number]: <string>
+  ~shipping[phone_number]: <string>
+  ~shipping[require_signature]: <boolean>
+  ~shipping[service]: <string>
+  ~shipping[type]: <string>
+  ~spending_controls[allowed_categories][0]: <string>
+  ~spending_controls[allowed_categories][1]: <string>
+  ~spending_controls[allowed_merchant_countries][0]: <string>
+  ~spending_controls[allowed_merchant_countries][1]: <string>
+  ~spending_controls[blocked_categories][0]: <string>
+  ~spending_controls[blocked_categories][1]: <string>
+  ~spending_controls[blocked_merchant_countries][0]: <string>
+  ~spending_controls[blocked_merchant_countries][1]: <string>
+  ~spending_controls[spending_limits][0][amount]: <integer>
+  ~spending_controls[spending_limits][0][interval]: <string>
+  ~spending_controls[spending_limits][0][categories][0]: <string>
+  ~spending_controls[spending_limits][0][categories][1]: <string>
+  ~spending_controls[spending_limits][1][amount]: <integer>
+  ~spending_controls[spending_limits][1][interval]: <string>
+  ~spending_controls[spending_limits][1][categories][0]: <string>
+  ~spending_controls[spending_limits][1][categories][1]: <string>
+  ~status: <string>
+}
+
+docs {
+  <p>Creates an Issuing <code>Card</code> object.</p>
+}

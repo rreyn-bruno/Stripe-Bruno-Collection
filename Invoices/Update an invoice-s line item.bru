@@ -1,0 +1,82 @@
+meta {
+  name: Update an invoice-s line item
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/v1/invoices/:invoice/lines/:line_item_id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  invoice: <string>
+  line_item_id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount: <integer>
+  ~description: <string>
+  ~discountable: <boolean>
+  ~discounts[0][coupon]: <string>
+  ~discounts[0][discount]: <string>
+  ~discounts[0][promotion_code]: <string>
+  ~discounts[1][coupon]: <string>
+  ~discounts[1][discount]: <string>
+  ~discounts[1][promotion_code]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~period[end]: <unix-time>
+  ~period[start]: <unix-time>
+  ~price: <string>
+  ~price_data[currency]: <string>
+  ~price_data[product]: <string>
+  ~price_data[product_data][name]: <string>
+  ~price_data[product_data][description]: <string>
+  ~price_data[product_data][images][0]: <string>
+  ~price_data[product_data][images][1]: <string>
+  ~price_data[product_data][metadata]: <object>
+  ~price_data[product_data][tax_code]: <string>
+  ~price_data[tax_behavior]: <string>
+  ~price_data[unit_amount]: <integer>
+  ~price_data[unit_amount_decimal]: <decimal>
+  ~quantity: <integer>
+  ~tax_amounts[0][amount]: <integer>
+  ~tax_amounts[0][tax_rate_data][display_name]: <string>
+  ~tax_amounts[0][tax_rate_data][inclusive]: <boolean>
+  ~tax_amounts[0][tax_rate_data][percentage]: <number>
+  ~tax_amounts[0][tax_rate_data][country]: <string>
+  ~tax_amounts[0][tax_rate_data][description]: <string>
+  ~tax_amounts[0][tax_rate_data][jurisdiction]: <string>
+  ~tax_amounts[0][tax_rate_data][state]: <string>
+  ~tax_amounts[0][tax_rate_data][tax_type]: <string>
+  ~tax_amounts[0][taxable_amount]: <integer>
+  ~tax_amounts[1][amount]: <integer>
+  ~tax_amounts[1][tax_rate_data][display_name]: <string>
+  ~tax_amounts[1][tax_rate_data][inclusive]: <boolean>
+  ~tax_amounts[1][tax_rate_data][percentage]: <number>
+  ~tax_amounts[1][tax_rate_data][country]: <string>
+  ~tax_amounts[1][tax_rate_data][description]: <string>
+  ~tax_amounts[1][tax_rate_data][jurisdiction]: <string>
+  ~tax_amounts[1][tax_rate_data][state]: <string>
+  ~tax_amounts[1][tax_rate_data][tax_type]: <string>
+  ~tax_amounts[1][taxable_amount]: <integer>
+  ~tax_rates[0]: <string>
+  ~tax_rates[1]: <string>
+}
+
+docs {
+  <p>Updates an invoice’s line item. Some fields, such as <code>tax_amounts</code>, only live on the invoice line item,
+  so they can only be updated through this endpoint. Other fields, such as <code>amount</code>, live on both the invoice
+  item and the invoice line item, so updates on this endpoint will propagate to the invoice item as well.
+  Updating an invoice’s line item is only possible before the invoice is finalized.</p>
+}

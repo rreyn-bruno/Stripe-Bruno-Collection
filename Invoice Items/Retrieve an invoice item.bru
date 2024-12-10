@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve an invoice item
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/v1/invoiceitems/:invoiceitem
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  invoiceitem: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the invoice item with the given ID.</p>
+}

@@ -1,0 +1,217 @@
+meta {
+  name: Create a token
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/tokens
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~account[business_type]: <string>
+  ~account[company][address][city]: <string>
+  ~account[company][address][country]: <string>
+  ~account[company][address][line1]: <string>
+  ~account[company][address][line2]: <string>
+  ~account[company][address][postal_code]: <string>
+  ~account[company][address][state]: <string>
+  ~account[company][address_kana][city]: <string>
+  ~account[company][address_kana][country]: <string>
+  ~account[company][address_kana][line1]: <string>
+  ~account[company][address_kana][line2]: <string>
+  ~account[company][address_kana][postal_code]: <string>
+  ~account[company][address_kana][state]: <string>
+  ~account[company][address_kana][town]: <string>
+  ~account[company][address_kanji][city]: <string>
+  ~account[company][address_kanji][country]: <string>
+  ~account[company][address_kanji][line1]: <string>
+  ~account[company][address_kanji][line2]: <string>
+  ~account[company][address_kanji][postal_code]: <string>
+  ~account[company][address_kanji][state]: <string>
+  ~account[company][address_kanji][town]: <string>
+  ~account[company][directors_provided]: <boolean>
+  ~account[company][executives_provided]: <boolean>
+  ~account[company][export_license_id]: <string>
+  ~account[company][export_purpose_code]: <string>
+  ~account[company][name]: <string>
+  ~account[company][name_kana]: <string>
+  ~account[company][name_kanji]: <string>
+  ~account[company][owners_provided]: <boolean>
+  ~account[company][ownership_declaration][date]: <unix-time>
+  ~account[company][ownership_declaration][ip]: <string>
+  ~account[company][ownership_declaration][user_agent]: <string>
+  ~account[company][ownership_declaration_shown_and_signed]: <boolean>
+  ~account[company][phone]: <string>
+  ~account[company][registration_number]: <string>
+  ~account[company][structure]: <string>
+  ~account[company][tax_id]: <string>
+  ~account[company][tax_id_registrar]: <string>
+  ~account[company][vat_id]: <string>
+  ~account[company][verification][document][back]: <string>
+  ~account[company][verification][document][front]: <string>
+  ~account[individual][address][city]: <string>
+  ~account[individual][address][country]: <string>
+  ~account[individual][address][line1]: <string>
+  ~account[individual][address][line2]: <string>
+  ~account[individual][address][postal_code]: <string>
+  ~account[individual][address][state]: <string>
+  ~account[individual][address_kana][city]: <string>
+  ~account[individual][address_kana][country]: <string>
+  ~account[individual][address_kana][line1]: <string>
+  ~account[individual][address_kana][line2]: <string>
+  ~account[individual][address_kana][postal_code]: <string>
+  ~account[individual][address_kana][state]: <string>
+  ~account[individual][address_kana][town]: <string>
+  ~account[individual][address_kanji][city]: <string>
+  ~account[individual][address_kanji][country]: <string>
+  ~account[individual][address_kanji][line1]: <string>
+  ~account[individual][address_kanji][line2]: <string>
+  ~account[individual][address_kanji][postal_code]: <string>
+  ~account[individual][address_kanji][state]: <string>
+  ~account[individual][address_kanji][town]: <string>
+  ~account[individual][dob][day]: <integer>
+  ~account[individual][dob][month]: <integer>
+  ~account[individual][dob][year]: <integer>
+  ~account[individual][email]: <string>
+  ~account[individual][first_name]: <string>
+  ~account[individual][first_name_kana]: <string>
+  ~account[individual][first_name_kanji]: <string>
+  ~account[individual][full_name_aliases][0]: <string>
+  ~account[individual][full_name_aliases][1]: <string>
+  ~account[individual][gender]: <string>
+  ~account[individual][id_number]: <string>
+  ~account[individual][id_number_secondary]: <string>
+  ~account[individual][last_name]: <string>
+  ~account[individual][last_name_kana]: <string>
+  ~account[individual][last_name_kanji]: <string>
+  ~account[individual][maiden_name]: <string>
+  ~account[individual][metadata]: <object>
+  ~account[individual][phone]: <string>
+  ~account[individual][political_exposure]: <string>
+  ~account[individual][registered_address][city]: <string>
+  ~account[individual][registered_address][country]: <string>
+  ~account[individual][registered_address][line1]: <string>
+  ~account[individual][registered_address][line2]: <string>
+  ~account[individual][registered_address][postal_code]: <string>
+  ~account[individual][registered_address][state]: <string>
+  ~account[individual][relationship][director]: <boolean>
+  ~account[individual][relationship][executive]: <boolean>
+  ~account[individual][relationship][owner]: <boolean>
+  ~account[individual][relationship][percent_ownership]: <number>
+  ~account[individual][relationship][title]: <string>
+  ~account[individual][ssn_last_4]: <string>
+  ~account[individual][verification][additional_document][back]: <string>
+  ~account[individual][verification][additional_document][front]: <string>
+  ~account[individual][verification][document][back]: <string>
+  ~account[individual][verification][document][front]: <string>
+  ~account[tos_shown_and_accepted]: <boolean>
+  ~bank_account[account_number]: <string>
+  ~bank_account[country]: <string>
+  ~bank_account[account_holder_name]: <string>
+  ~bank_account[account_holder_type]: <string>
+  ~bank_account[account_type]: <string>
+  ~bank_account[currency]: <string>
+  ~bank_account[payment_method]: <string>
+  ~bank_account[routing_number]: <string>
+  ~card[exp_month]: <string>
+  ~card[exp_year]: <string>
+  ~card[number]: <string>
+  ~card[address_city]: <string>
+  ~card[address_country]: <string>
+  ~card[address_line1]: <string>
+  ~card[address_line2]: <string>
+  ~card[address_state]: <string>
+  ~card[address_zip]: <string>
+  ~card[currency]: <string>
+  ~card[cvc]: <string>
+  ~card[name]: <string>
+  ~card[networks][preferred]: <string>
+  ~customer: <string>
+  ~cvc_update[cvc]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~person[additional_tos_acceptances][account][date]: <unix-time>
+  ~person[additional_tos_acceptances][account][ip]: <string>
+  ~person[additional_tos_acceptances][account][user_agent]: <string>
+  ~person[address][city]: <string>
+  ~person[address][country]: <string>
+  ~person[address][line1]: <string>
+  ~person[address][line2]: <string>
+  ~person[address][postal_code]: <string>
+  ~person[address][state]: <string>
+  ~person[address_kana][city]: <string>
+  ~person[address_kana][country]: <string>
+  ~person[address_kana][line1]: <string>
+  ~person[address_kana][line2]: <string>
+  ~person[address_kana][postal_code]: <string>
+  ~person[address_kana][state]: <string>
+  ~person[address_kana][town]: <string>
+  ~person[address_kanji][city]: <string>
+  ~person[address_kanji][country]: <string>
+  ~person[address_kanji][line1]: <string>
+  ~person[address_kanji][line2]: <string>
+  ~person[address_kanji][postal_code]: <string>
+  ~person[address_kanji][state]: <string>
+  ~person[address_kanji][town]: <string>
+  ~person[dob][day]: <integer>
+  ~person[dob][month]: <integer>
+  ~person[dob][year]: <integer>
+  ~person[documents][company_authorization][files][0]: <string>
+  ~person[documents][company_authorization][files][1]: <string>
+  ~person[documents][passport][files][0]: <string>
+  ~person[documents][passport][files][1]: <string>
+  ~person[documents][visa][files][0]: <string>
+  ~person[documents][visa][files][1]: <string>
+  ~person[email]: <string>
+  ~person[first_name]: <string>
+  ~person[first_name_kana]: <string>
+  ~person[first_name_kanji]: <string>
+  ~person[full_name_aliases][0]: <string>
+  ~person[full_name_aliases][1]: <string>
+  ~person[gender]: <string>
+  ~person[id_number]: <string>
+  ~person[id_number_secondary]: <string>
+  ~person[last_name]: <string>
+  ~person[last_name_kana]: <string>
+  ~person[last_name_kanji]: <string>
+  ~person[maiden_name]: <string>
+  ~person[metadata]: <object>
+  ~person[nationality]: <string>
+  ~person[phone]: <string>
+  ~person[political_exposure]: <string>
+  ~person[registered_address][city]: <string>
+  ~person[registered_address][country]: <string>
+  ~person[registered_address][line1]: <string>
+  ~person[registered_address][line2]: <string>
+  ~person[registered_address][postal_code]: <string>
+  ~person[registered_address][state]: <string>
+  ~person[relationship][director]: <boolean>
+  ~person[relationship][executive]: <boolean>
+  ~person[relationship][legal_guardian]: <boolean>
+  ~person[relationship][owner]: <boolean>
+  ~person[relationship][percent_ownership]: <number>
+  ~person[relationship][representative]: <boolean>
+  ~person[relationship][title]: <string>
+  ~person[ssn_last_4]: <string>
+  ~person[verification][additional_document][back]: <string>
+  ~person[verification][additional_document][front]: <string>
+  ~person[verification][document][back]: <string>
+  ~person[verification][document][front]: <string>
+  ~pii[id_number]: <string>
+}
+
+docs {
+  <p>Creates a single-use token that represents a bank account’s details.
+  You can use this token with any API method in place of a bank account dictionary. You can only use this token once. To do so, attach it to a <a href="#accounts">Custom account</a>.</p>
+}

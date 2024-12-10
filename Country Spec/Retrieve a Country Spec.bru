@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a Country Spec
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/country_specs/:country
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  country: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a Country Spec for a given Country code.</p>
+}

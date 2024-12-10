@@ -1,0 +1,33 @@
+meta {
+  name: List PaymentMethods
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/payment_methods
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~customer: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~type: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of PaymentMethods for Treasury flows. If you want to list the PaymentMethods attached to a Customer for payments, you should use the <a href="/docs/api/payment_methods/customer_list">List a Customer’s PaymentMethods</a> API instead.</p>
+}

@@ -1,0 +1,40 @@
+meta {
+  name: List all products
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/products
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~active: <boolean>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~ids[0]: <string>
+  ~ids[1]: <string>
+  ~limit: <integer>
+  ~shippable: <boolean>
+  ~starting_after: <string>
+  ~url: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of your products. The products are returned sorted by creation date, with the most recently created products appearing first.</p>
+}

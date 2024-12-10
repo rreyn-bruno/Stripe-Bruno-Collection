@@ -1,0 +1,48 @@
+meta {
+  name: Create a refund
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/refunds
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount: <integer>
+  ~charge: <string>
+  ~currency: <string>
+  ~customer: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~instructions_email: <string>
+  ~origin: <string>
+  ~payment_intent: <string>
+  ~reason: <string>
+  ~refund_application_fee: <boolean>
+  ~reverse_transfer: <boolean>
+}
+
+docs {
+  <p>When you create a new refund, you must specify a Charge or a PaymentIntent object on which to create it.</p>
+  
+  <p>Creating a new refund will refund a charge that has previously been created but not yet refunded.
+  Funds will be refunded to the credit or debit card that was originally charged.</p>
+  
+  <p>You can optionally refund only part of a charge.
+  You can do so multiple times, until the entire charge has been refunded.</p>
+  
+  <p>Once entirely refunded, a charge can’t be refunded again.
+  This method will raise an error when called on an already-refunded charge,
+  or when trying to refund more money than is left on a charge.</p>
+}

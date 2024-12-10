@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a portal configuration
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/billing_portal/configurations/:configuration
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  configuration: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a configuration that describes the functionality of the customer portal.</p>
+}

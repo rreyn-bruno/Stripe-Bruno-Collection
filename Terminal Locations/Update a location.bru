@@ -1,0 +1,39 @@
+meta {
+  name: Update a location
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/terminal/locations/:location
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  location: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~address[city]: <string>
+  ~address[country]: <string>
+  ~address[line1]: <string>
+  ~address[line2]: <string>
+  ~address[postal_code]: <string>
+  ~address[state]: <string>
+  ~display_name: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates a <code>Location</code> object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+}

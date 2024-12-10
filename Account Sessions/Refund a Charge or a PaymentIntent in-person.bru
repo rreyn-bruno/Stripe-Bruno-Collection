@@ -1,0 +1,55 @@
+meta {
+  name: Refund a Charge or a PaymentIntent in-person
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/account_sessions
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  account: <string>
+  components[account_management][enabled]: <boolean>
+  components[account_management][features][external_account_collection]: <boolean>
+  components[account_onboarding][enabled]: <boolean>
+  components[account_onboarding][features][external_account_collection]: <boolean>
+  components[balances][enabled]: <boolean>
+  components[balances][features][edit_payout_schedule]: <boolean>
+  components[balances][features][instant_payouts]: <boolean>
+  components[balances][features][standard_payouts]: <boolean>
+  components[documents][enabled]: <boolean>
+  components[notification_banner][enabled]: <boolean>
+  components[notification_banner][features][external_account_collection]: <boolean>
+  components[payment_details][enabled]: <boolean>
+  components[payment_details][features][capture_payments]: <boolean>
+  components[payment_details][features][destination_on_behalf_of_charge_management]: <boolean>
+  components[payment_details][features][dispute_management]: <boolean>
+  components[payment_details][features][refund_management]: <boolean>
+  components[payments][enabled]: <boolean>
+  components[payments][features][capture_payments]: <boolean>
+  components[payments][features][destination_on_behalf_of_charge_management]: <boolean>
+  components[payments][features][dispute_management]: <boolean>
+  components[payments][features][refund_management]: <boolean>
+  components[payouts][enabled]: <boolean>
+  components[payouts][features][edit_payout_schedule]: <boolean>
+  components[payouts][features][instant_payouts]: <boolean>
+  components[payouts][features][standard_payouts]: <boolean>
+  components[payouts_list][enabled]: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates a AccountSession object that includes a single-use token that the platform can use on their front-end to grant client-side API access.</p>
+}

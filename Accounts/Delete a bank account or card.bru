@@ -1,0 +1,28 @@
+meta {
+  name: Delete a bank account or card
+  type: http
+  seq: 12
+}
+
+delete {
+  url: {{baseUrl}}/v1/accounts/:account/external_accounts/:id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  account: <string>
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Delete a specified external account for a given account.</p>
+}

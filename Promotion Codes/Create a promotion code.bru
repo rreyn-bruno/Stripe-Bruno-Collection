@@ -1,0 +1,38 @@
+meta {
+  name: Create a promotion code
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/promotion_codes
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  coupon: <string>
+  ~active: <boolean>
+  ~code: <string>
+  ~customer: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~expires_at: <unix-time>
+  ~max_redemptions: <integer>
+  ~restrictions[currency_options]: <object>
+  ~restrictions[first_time_transaction]: <boolean>
+  ~restrictions[minimum_amount]: <integer>
+  ~restrictions[minimum_amount_currency]: <string>
+}
+
+docs {
+  <p>A promotion code points to a coupon. You can optionally restrict the code to a specific customer, redemption limit, and expiration date.</p>
+}

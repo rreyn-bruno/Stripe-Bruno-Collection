@@ -1,0 +1,39 @@
+meta {
+  name: Create a shipping rate
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/shipping_rates
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  display_name: <string>
+  ~delivery_estimate[maximum][unit]: <string>
+  ~delivery_estimate[maximum][value]: <integer>
+  ~delivery_estimate[minimum][unit]: <string>
+  ~delivery_estimate[minimum][value]: <integer>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~fixed_amount[amount]: <integer>
+  ~fixed_amount[currency]: <string>
+  ~fixed_amount[currency_options]: <object>
+  ~tax_behavior: <string>
+  ~tax_code: <string>
+  ~type: <string>
+}
+
+docs {
+  <p>Creates a new shipping rate object.</p>
+}

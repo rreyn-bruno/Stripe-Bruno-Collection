@@ -1,0 +1,37 @@
+meta {
+  name: List all credit notes
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/credit_notes
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~customer: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~invoice: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of credit notes.</p>
+}

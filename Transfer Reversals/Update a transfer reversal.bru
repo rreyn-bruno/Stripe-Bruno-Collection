@@ -1,0 +1,35 @@
+meta {
+  name: Update a transfer reversal
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/transfers/:transfer/reversals/:id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  id: <string>
+  transfer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the specified reversal by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+  
+  <p>This request only accepts metadata and description as arguments.</p>
+}

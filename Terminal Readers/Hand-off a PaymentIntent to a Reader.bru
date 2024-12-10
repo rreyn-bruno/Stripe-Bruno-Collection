@@ -1,0 +1,36 @@
+meta {
+  name: Hand-off a PaymentIntent to a Reader
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/v1/terminal/readers/:reader/process_payment_intent
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  reader: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  payment_intent: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~process_config[enable_customer_cancellation]: <boolean>
+  ~process_config[skip_tipping]: <boolean>
+  ~process_config[tipping][amount_eligible]: <integer>
+}
+
+docs {
+  <p>Initiates a payment flow on a Reader.</p>
+}

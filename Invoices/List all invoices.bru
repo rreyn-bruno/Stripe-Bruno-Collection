@@ -1,0 +1,43 @@
+meta {
+  name: List all invoices
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/invoices
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~collection_method: <string>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~customer: <string>
+  ~due_date[gt]: <integer>
+  ~due_date[gte]: <integer>
+  ~due_date[lt]: <integer>
+  ~due_date[lte]: <integer>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~status: <string>
+  ~subscription: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>You can list all invoices, or list the invoices for a specific customer. The invoices are returned sorted by creation date, with the most recently created invoices appearing first.</p>
+}

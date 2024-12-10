@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve an order
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/climate/orders/:order
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  order: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the details of a Climate order object with the given ID.</p>
+}

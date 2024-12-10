@@ -1,0 +1,35 @@
+meta {
+  name: List all readers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/terminal/readers
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~device_type: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~location: <string>
+  ~serial_number: <string>
+  ~starting_after: <string>
+  ~status: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of <code>Reader</code> objects.</p>
+}

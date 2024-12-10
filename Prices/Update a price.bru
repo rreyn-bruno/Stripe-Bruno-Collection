@@ -1,0 +1,37 @@
+meta {
+  name: Update a price
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/prices/:price
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  price: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~active: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~lookup_key: <string>
+  ~nickname: <string>
+  ~tax_behavior: <string>
+  ~transfer_lookup_key: <boolean>
+}
+
+docs {
+  <p>Updates the specified price by setting the values of the parameters passed. Any parameters not provided are left unchanged.</p>
+}

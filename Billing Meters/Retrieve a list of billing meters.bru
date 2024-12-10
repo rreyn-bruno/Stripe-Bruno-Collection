@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a list of billing meters
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/billing/meters
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~status: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieve a list of billing meters.</p>
+}

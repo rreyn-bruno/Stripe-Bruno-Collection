@@ -1,0 +1,52 @@
+meta {
+  name: Create a portal session
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/billing_portal/sessions
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  customer: <string>
+  ~configuration: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~flow_data[type]: <string>
+  ~flow_data[after_completion][type]: <string>
+  ~flow_data[after_completion][hosted_confirmation][custom_message]: <string>
+  ~flow_data[after_completion][redirect][return_url]: <string>
+  ~flow_data[subscription_cancel][subscription]: <string>
+  ~flow_data[subscription_cancel][retention][coupon_offer][coupon]: <string>
+  ~flow_data[subscription_cancel][retention][type]: <string>
+  ~flow_data[subscription_update][subscription]: <string>
+  ~flow_data[subscription_update_confirm][items][0][id]: <string>
+  ~flow_data[subscription_update_confirm][items][0][price]: <string>
+  ~flow_data[subscription_update_confirm][items][0][quantity]: <integer>
+  ~flow_data[subscription_update_confirm][items][1][id]: <string>
+  ~flow_data[subscription_update_confirm][items][1][price]: <string>
+  ~flow_data[subscription_update_confirm][items][1][quantity]: <integer>
+  ~flow_data[subscription_update_confirm][subscription]: <string>
+  ~flow_data[subscription_update_confirm][discounts][0][coupon]: <string>
+  ~flow_data[subscription_update_confirm][discounts][0][promotion_code]: <string>
+  ~flow_data[subscription_update_confirm][discounts][1][coupon]: <string>
+  ~flow_data[subscription_update_confirm][discounts][1][promotion_code]: <string>
+  ~locale: <string>
+  ~on_behalf_of: <string>
+  ~return_url: <string>
+}
+
+docs {
+  <p>Creates a session of the customer portal.</p>
+}

@@ -1,0 +1,92 @@
+meta {
+  name: Update a quote
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/quotes/:quote
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  quote: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~automatic_tax[enabled]: <boolean>
+  ~automatic_tax[liability][type]: <string>
+  ~automatic_tax[liability][account]: <string>
+  ~collection_method: <string>
+  ~customer: <string>
+  ~default_tax_rates[0]: <string>
+  ~default_tax_rates[1]: <string>
+  ~discounts[0][coupon]: <string>
+  ~discounts[0][discount]: <string>
+  ~discounts[0][promotion_code]: <string>
+  ~discounts[1][coupon]: <string>
+  ~discounts[1][discount]: <string>
+  ~discounts[1][promotion_code]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~expires_at: <unix-time>
+  ~invoice_settings[days_until_due]: <integer>
+  ~invoice_settings[issuer][type]: <string>
+  ~invoice_settings[issuer][account]: <string>
+  ~line_items[0][discounts][0][coupon]: <string>
+  ~line_items[0][discounts][0][discount]: <string>
+  ~line_items[0][discounts][0][promotion_code]: <string>
+  ~line_items[0][discounts][1][coupon]: <string>
+  ~line_items[0][discounts][1][discount]: <string>
+  ~line_items[0][discounts][1][promotion_code]: <string>
+  ~line_items[0][id]: <string>
+  ~line_items[0][price]: <string>
+  ~line_items[0][price_data][currency]: <string>
+  ~line_items[0][price_data][product]: <string>
+  ~line_items[0][price_data][recurring][interval]: <string>
+  ~line_items[0][price_data][recurring][interval_count]: <integer>
+  ~line_items[0][price_data][tax_behavior]: <string>
+  ~line_items[0][price_data][unit_amount]: <integer>
+  ~line_items[0][price_data][unit_amount_decimal]: <decimal>
+  ~line_items[0][quantity]: <integer>
+  ~line_items[0][tax_rates][0]: <string>
+  ~line_items[0][tax_rates][1]: <string>
+  ~line_items[1][discounts][0][coupon]: <string>
+  ~line_items[1][discounts][0][discount]: <string>
+  ~line_items[1][discounts][0][promotion_code]: <string>
+  ~line_items[1][discounts][1][coupon]: <string>
+  ~line_items[1][discounts][1][discount]: <string>
+  ~line_items[1][discounts][1][promotion_code]: <string>
+  ~line_items[1][id]: <string>
+  ~line_items[1][price]: <string>
+  ~line_items[1][price_data][currency]: <string>
+  ~line_items[1][price_data][product]: <string>
+  ~line_items[1][price_data][recurring][interval]: <string>
+  ~line_items[1][price_data][recurring][interval_count]: <integer>
+  ~line_items[1][price_data][tax_behavior]: <string>
+  ~line_items[1][price_data][unit_amount]: <integer>
+  ~line_items[1][price_data][unit_amount_decimal]: <decimal>
+  ~line_items[1][quantity]: <integer>
+  ~line_items[1][tax_rates][0]: <string>
+  ~line_items[1][tax_rates][1]: <string>
+  ~subscription_data[description]: <string>
+  ~subscription_data[effective_date]: <string>
+  ~subscription_data[metadata]: <object>
+  ~subscription_data[trial_period_days]: <integer>
+  ~transfer_data[destination]: <string>
+  ~transfer_data[amount]: <integer>
+  ~transfer_data[amount_percent]: <number>
+}
+
+docs {
+  <p>A quote models prices and services for a customer.</p>
+}

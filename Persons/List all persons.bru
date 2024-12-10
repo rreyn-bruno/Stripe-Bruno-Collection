@@ -1,0 +1,40 @@
+meta {
+  name: List all persons
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/accounts/:account/persons
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~relationship[director]: <boolean>
+  ~relationship[executive]: <boolean>
+  ~relationship[legal_guardian]: <boolean>
+  ~relationship[owner]: <boolean>
+  ~relationship[representative]: <boolean>
+  ~starting_after: <string>
+}
+
+params:path {
+  account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of people associated with the account’s legal entity. The people are returned sorted by creation date, with the most recent people appearing first.</p>
+}

@@ -1,0 +1,38 @@
+meta {
+  name: Create a Session
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/financial_connections/sessions
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  account_holder[type]: <string>
+  account_holder[account]: <string>
+  account_holder[customer]: <string>
+  permissions[0]: <string>
+  permissions[1]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~filters[countries][0]: <string>
+  ~filters[countries][1]: <string>
+  ~prefetch[0]: <string>
+  ~prefetch[1]: <string>
+  ~return_url: <string>
+}
+
+docs {
+  <p>To launch the Financial Connections authorization flow, create a <code>Session</code>. The session’s <code>client_secret</code> can be used to launch the flow using Stripe.js.</p>
+}

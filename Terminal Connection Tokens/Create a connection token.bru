@@ -1,0 +1,29 @@
+meta {
+  name: Create a connection token
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/terminal/connection_tokens
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~location: <string>
+}
+
+docs {
+  <p>To connect to a reader the Stripe Terminal SDK needs to retrieve a short-lived connection token from Stripe, proxied through your server. On your backend, add an endpoint that creates and returns a connection token.</p>
+}

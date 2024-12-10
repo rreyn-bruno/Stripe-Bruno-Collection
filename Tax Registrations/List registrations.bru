@@ -1,0 +1,110 @@
+meta {
+  name: List registrations
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/tax/registrations
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  country: <string>
+  country_options[ae][type]: <string>
+  country_options[at][type]: <string>
+  country_options[at][standard][place_of_supply_scheme]: <string>
+  country_options[au][type]: <string>
+  country_options[be][type]: <string>
+  country_options[be][standard][place_of_supply_scheme]: <string>
+  country_options[bg][type]: <string>
+  country_options[bg][standard][place_of_supply_scheme]: <string>
+  country_options[ca][type]: <string>
+  country_options[ca][province_standard][province]: <string>
+  country_options[ch][type]: <string>
+  country_options[cl][type]: <string>
+  country_options[co][type]: <string>
+  country_options[cy][type]: <string>
+  country_options[cy][standard][place_of_supply_scheme]: <string>
+  country_options[cz][type]: <string>
+  country_options[cz][standard][place_of_supply_scheme]: <string>
+  country_options[de][type]: <string>
+  country_options[de][standard][place_of_supply_scheme]: <string>
+  country_options[dk][type]: <string>
+  country_options[dk][standard][place_of_supply_scheme]: <string>
+  country_options[ee][type]: <string>
+  country_options[ee][standard][place_of_supply_scheme]: <string>
+  country_options[es][type]: <string>
+  country_options[es][standard][place_of_supply_scheme]: <string>
+  country_options[fi][type]: <string>
+  country_options[fi][standard][place_of_supply_scheme]: <string>
+  country_options[fr][type]: <string>
+  country_options[fr][standard][place_of_supply_scheme]: <string>
+  country_options[gb][type]: <string>
+  country_options[gr][type]: <string>
+  country_options[gr][standard][place_of_supply_scheme]: <string>
+  country_options[hr][type]: <string>
+  country_options[hr][standard][place_of_supply_scheme]: <string>
+  country_options[hu][type]: <string>
+  country_options[hu][standard][place_of_supply_scheme]: <string>
+  country_options[id][type]: <string>
+  country_options[ie][type]: <string>
+  country_options[ie][standard][place_of_supply_scheme]: <string>
+  country_options[is][type]: <string>
+  country_options[it][type]: <string>
+  country_options[it][standard][place_of_supply_scheme]: <string>
+  country_options[jp][type]: <string>
+  country_options[kr][type]: <string>
+  country_options[lt][type]: <string>
+  country_options[lt][standard][place_of_supply_scheme]: <string>
+  country_options[lu][type]: <string>
+  country_options[lu][standard][place_of_supply_scheme]: <string>
+  country_options[lv][type]: <string>
+  country_options[lv][standard][place_of_supply_scheme]: <string>
+  country_options[mt][type]: <string>
+  country_options[mt][standard][place_of_supply_scheme]: <string>
+  country_options[mx][type]: <string>
+  country_options[my][type]: <string>
+  country_options[nl][type]: <string>
+  country_options[nl][standard][place_of_supply_scheme]: <string>
+  country_options[no][type]: <string>
+  country_options[nz][type]: <string>
+  country_options[pl][type]: <string>
+  country_options[pl][standard][place_of_supply_scheme]: <string>
+  country_options[pt][type]: <string>
+  country_options[pt][standard][place_of_supply_scheme]: <string>
+  country_options[ro][type]: <string>
+  country_options[ro][standard][place_of_supply_scheme]: <string>
+  country_options[sa][type]: <string>
+  country_options[se][type]: <string>
+  country_options[se][standard][place_of_supply_scheme]: <string>
+  country_options[sg][type]: <string>
+  country_options[si][type]: <string>
+  country_options[si][standard][place_of_supply_scheme]: <string>
+  country_options[sk][type]: <string>
+  country_options[sk][standard][place_of_supply_scheme]: <string>
+  country_options[th][type]: <string>
+  country_options[tr][type]: <string>
+  country_options[us][state]: <string>
+  country_options[us][type]: <string>
+  country_options[us][local_amusement_tax][jurisdiction]: <string>
+  country_options[us][local_lease_tax][jurisdiction]: <string>
+  country_options[vn][type]: <string>
+  country_options[za][type]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~expires_at: <unix-time>
+}
+
+docs {
+  <p>Creates a new Tax <code>Registration</code> object.</p>
+}

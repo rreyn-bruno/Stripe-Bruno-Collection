@@ -1,0 +1,55 @@
+meta {
+  name: Create an OutboundPayment
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/outbound_payments
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  amount: <integer>
+  currency: <string>
+  financial_account: <string>
+  ~customer: <string>
+  ~description: <string>
+  ~destination_payment_method: <string>
+  ~destination_payment_method_data[type]: <string>
+  ~destination_payment_method_data[billing_details][address][city]: <string>
+  ~destination_payment_method_data[billing_details][address][country]: <string>
+  ~destination_payment_method_data[billing_details][address][line1]: <string>
+  ~destination_payment_method_data[billing_details][address][line2]: <string>
+  ~destination_payment_method_data[billing_details][address][postal_code]: <string>
+  ~destination_payment_method_data[billing_details][address][state]: <string>
+  ~destination_payment_method_data[billing_details][email]: <string>
+  ~destination_payment_method_data[billing_details][name]: <string>
+  ~destination_payment_method_data[billing_details][phone]: <string>
+  ~destination_payment_method_data[financial_account]: <string>
+  ~destination_payment_method_data[metadata]: <object>
+  ~destination_payment_method_data[us_bank_account][account_holder_type]: <string>
+  ~destination_payment_method_data[us_bank_account][account_number]: <string>
+  ~destination_payment_method_data[us_bank_account][account_type]: <string>
+  ~destination_payment_method_data[us_bank_account][financial_connections_account]: <string>
+  ~destination_payment_method_data[us_bank_account][routing_number]: <string>
+  ~destination_payment_method_options[us_bank_account][network]: <string>
+  ~end_user_details[present]: <boolean>
+  ~end_user_details[ip_address]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~statement_descriptor: <string>
+}
+
+docs {
+  <p>Creates an OutboundPayment.</p>
+}

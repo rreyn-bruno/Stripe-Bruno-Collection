@@ -1,0 +1,32 @@
+meta {
+  name: Detach a PaymentMethod
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_methods/:payment_method/detach
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  payment_method: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Detaches a PaymentMethod object from a Customer. After a PaymentMethod is detached, it can no longer be used for a payment or re-attached to a Customer.</p>
+}

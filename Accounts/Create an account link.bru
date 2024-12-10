@@ -1,0 +1,35 @@
+meta {
+  name: Create an account link
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/account_links
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  refresh_url: <string>
+  return_url: <string>
+  account: <string>
+  type: <string>
+  ~collect: <string>
+  ~collection_options[fields]: <string>
+  ~collection_options[future_requirements]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates an AccountLink object that includes a single-use Stripe URL that the platform can redirect their user to in order to take them through the Connect Onboarding flow.</p>
+}

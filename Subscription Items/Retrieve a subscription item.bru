@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a subscription item
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/v1/subscription_items/:item
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  item: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the subscription item with the given ID.</p>
+}

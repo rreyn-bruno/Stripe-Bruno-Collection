@@ -1,0 +1,35 @@
+meta {
+  name: Creates a billing meter
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/billing/meters
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  default_aggregation[formula]: <string>
+  display_name: <string>
+  event_name: <string>
+  ~customer_mapping[event_payload_key]: <string>
+  ~customer_mapping[type]: <string>
+  ~event_time_window: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~value_settings[event_payload_key]: <string>
+}
+
+docs {
+  <p>Creates a billing meter</p>
+}

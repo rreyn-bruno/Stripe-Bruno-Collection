@@ -1,0 +1,32 @@
+meta {
+  name: Update a payout
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/payouts/:payout
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  payout: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the specified payout by setting the values of the parameters you pass. We don’t change parameters that you don’t provide. This request only accepts the metadata as arguments.</p>
+}

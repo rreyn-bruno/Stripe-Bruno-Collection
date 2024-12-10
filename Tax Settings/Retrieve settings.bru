@@ -1,0 +1,28 @@
+meta {
+  name: Retrieve settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/tax/settings
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves Tax <code>Settings</code> for a merchant.</p>
+}

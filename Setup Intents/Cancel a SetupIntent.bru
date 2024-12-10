@@ -1,0 +1,35 @@
+meta {
+  name: Cancel a SetupIntent
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/setup_intents/:intent/cancel
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  intent: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~cancellation_reason: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>You can cancel a SetupIntent object when it’s in one of these statuses: <code>requires_payment_method</code>, <code>requires_confirmation</code>, or <code>requires_action</code>. </p>
+  
+  <p>After you cancel it, setup is abandoned and any operations on the SetupIntent fail with an error.</p>
+}

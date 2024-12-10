@@ -1,0 +1,33 @@
+meta {
+  name: Retrieve a cash balance transaction
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/customers/:customer/cash_balance_transactions/:transaction
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  customer: <string>
+  transaction: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a specific cash balance transaction, which updated the customer’s <a href="/docs/payments/customer-balance">cash balance</a>.</p>
+}

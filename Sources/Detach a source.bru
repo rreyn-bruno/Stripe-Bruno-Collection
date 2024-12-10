@@ -1,0 +1,33 @@
+meta {
+  name: Detach a source
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/customers/:customer/sources/:id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  customer: <string>
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Delete a specified source for a given customer.</p>
+}

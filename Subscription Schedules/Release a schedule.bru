@@ -1,0 +1,33 @@
+meta {
+  name: Release a schedule
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/subscription_schedules/:schedule/release
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  schedule: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~preserve_cancel_date: <boolean>
+}
+
+docs {
+  <p>Releases the subscription schedule immediately, which will stop scheduling of its phases, but leave any existing subscription in place. A schedule can only be released if its status is <code>not_started</code> or <code>active</code>. If the subscription schedule is currently associated with a subscription, releasing it will remove its <code>subscription</code> property and set the subscription’s ID to the <code>released_subscription</code> property.</p>
+}

@@ -1,0 +1,34 @@
+meta {
+  name: Update a value list
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/radar/value_lists/:value_list
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  value_list: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~alias: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~name: <string>
+}
+
+docs {
+  <p>Updates a <code>ValueList</code> object by setting the values of the parameters passed. Any parameters not provided will be left unchanged. Note that <code>item_type</code> is immutable.</p>
+}

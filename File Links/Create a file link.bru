@@ -1,0 +1,30 @@
+meta {
+  name: Create a file link
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/file_links
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  file: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~expires_at: <unix-time>
+}
+
+docs {
+  <p>Creates a new file link object.</p>
+}

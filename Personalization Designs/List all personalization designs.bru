@@ -1,0 +1,36 @@
+meta {
+  name: List all personalization designs
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/issuing/personalization_designs
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~lookup_keys[0]: <string>
+  ~lookup_keys[1]: <string>
+  ~preferences[is_default]: <boolean>
+  ~preferences[is_platform_default]: <boolean>
+  ~starting_after: <string>
+  ~status: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of personalization design objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.</p>
+}

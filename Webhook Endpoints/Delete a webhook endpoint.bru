@@ -1,0 +1,27 @@
+meta {
+  name: Delete a webhook endpoint
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/webhook_endpoints/:webhook_endpoint
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  webhook_endpoint: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>You can also delete webhook endpoints via the <a href="https://dashboard.stripe.com/account/webhooks">webhook endpoint management</a> page of the Stripe dashboard.</p>
+}

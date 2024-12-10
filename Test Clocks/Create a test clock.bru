@@ -1,0 +1,30 @@
+meta {
+  name: Create a test clock
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/test_helpers/test_clocks
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  frozen_time: <unix-time>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~name: <string>
+}
+
+docs {
+  <p>Creates a new test clock that can be attached to new customers and quotes.</p>
+}

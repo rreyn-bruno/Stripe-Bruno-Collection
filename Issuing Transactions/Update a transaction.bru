@@ -1,0 +1,32 @@
+meta {
+  name: Update a transaction
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/issuing/transactions/:transaction
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  transaction: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the specified Issuing <code>Transaction</code> object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+}

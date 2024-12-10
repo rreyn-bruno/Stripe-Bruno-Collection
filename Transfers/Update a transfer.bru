@@ -1,0 +1,35 @@
+meta {
+  name: Update a transfer
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/transfers/:transfer
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  transfer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~description: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the specified transfer by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+  
+  <p>This request accepts only metadata as an argument.</p>
+}

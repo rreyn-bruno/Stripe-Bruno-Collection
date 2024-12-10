@@ -1,0 +1,34 @@
+meta {
+  name: Close a dispute
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/disputes/:dispute/close
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  dispute: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Closing the dispute for a charge indicates that you do not have any evidence to submit and are essentially dismissing the dispute, acknowledging it as lost.</p>
+  
+  <p>The status of the dispute will change from <code>needs_response</code> to <code>lost</code>. <em>Closing a dispute is irreversible</em>.</p>
+}

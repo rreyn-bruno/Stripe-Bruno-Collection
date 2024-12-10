@@ -1,0 +1,34 @@
+meta {
+  name: Update a customer balance transaction
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/customers/:customer/balance_transactions/:transaction
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  customer: <string>
+  transaction: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~description: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Most credit balance transaction fields are immutable, but you may update its <code>description</code> and <code>metadata</code>.</p>
+}

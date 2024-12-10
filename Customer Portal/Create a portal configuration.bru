@@ -1,0 +1,53 @@
+meta {
+  name: Create a portal configuration
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/billing_portal/configurations
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  business_profile[headline]: <string>
+  business_profile[privacy_policy_url]: <string>
+  business_profile[terms_of_service_url]: <string>
+  features[customer_update][enabled]: <boolean>
+  features[customer_update][allowed_updates][0]: <string>
+  features[customer_update][allowed_updates][1]: <string>
+  features[invoice_history][enabled]: <boolean>
+  features[payment_method_update][enabled]: <boolean>
+  features[subscription_cancel][enabled]: <boolean>
+  features[subscription_cancel][cancellation_reason][enabled]: <boolean>
+  features[subscription_cancel][cancellation_reason][options][0]: <string>
+  features[subscription_cancel][cancellation_reason][options][1]: <string>
+  features[subscription_cancel][mode]: <string>
+  features[subscription_cancel][proration_behavior]: <string>
+  features[subscription_update][default_allowed_updates][0]: <string>
+  features[subscription_update][default_allowed_updates][1]: <string>
+  features[subscription_update][enabled]: <boolean>
+  features[subscription_update][products][0][prices][0]: <string>
+  features[subscription_update][products][0][prices][1]: <string>
+  features[subscription_update][products][0][product]: <string>
+  features[subscription_update][products][1][prices][0]: <string>
+  features[subscription_update][products][1][prices][1]: <string>
+  features[subscription_update][products][1][product]: <string>
+  features[subscription_update][proration_behavior]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~login_page[enabled]: <boolean>
+}
+
+docs {
+  <p>Creates a configuration that describes the functionality and behavior of a PortalSession</p>
+}

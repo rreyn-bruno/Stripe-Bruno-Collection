@@ -1,0 +1,27 @@
+meta {
+  name: Delete a value list item
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/radar/value_list_items/:item
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  item: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Deletes a <code>ValueListItem</code> object, removing it from its parent value list.</p>
+}

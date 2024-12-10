@@ -1,0 +1,39 @@
+meta {
+  name: Update a tax rate
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/tax_rates/:tax_rate
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  tax_rate: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~active: <boolean>
+  ~country: <string>
+  ~description: <string>
+  ~display_name: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~jurisdiction: <string>
+  ~state: <string>
+  ~tax_type: <string>
+}
+
+docs {
+  <p>Updates an existing tax rate.</p>
+}

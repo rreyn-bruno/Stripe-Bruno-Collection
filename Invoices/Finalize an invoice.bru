@@ -1,0 +1,33 @@
+meta {
+  name: Finalize an invoice
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/v1/invoices/:invoice/finalize
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  invoice: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~auto_advance: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Stripe automatically finalizes drafts before sending and attempting payment on invoices. However, if you’d like to finalize a draft invoice manually, you can do so using this method.</p>
+}

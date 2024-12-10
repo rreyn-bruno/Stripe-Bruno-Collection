@@ -1,0 +1,37 @@
+meta {
+  name: List all value list items
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/radar/value_list_items?value_list=<string>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  value_list: <string>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~value: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of <code>ValueListItem</code> objects. The objects are sorted in descending order by creation date, with the most recently created object appearing first.</p>
+}

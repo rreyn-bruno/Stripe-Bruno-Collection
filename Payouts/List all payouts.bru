@@ -1,0 +1,41 @@
+meta {
+  name: List all payouts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/payouts
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~arrival_date[gt]: <integer>
+  ~arrival_date[gte]: <integer>
+  ~arrival_date[lt]: <integer>
+  ~arrival_date[lte]: <integer>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~destination: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~status: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of existing payouts sent to third-party bank accounts or payouts that Stripe sent to you. The payouts return in sorted order, with the most recently created payouts appearing first.</p>
+}

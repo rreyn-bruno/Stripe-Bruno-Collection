@@ -1,0 +1,166 @@
+meta {
+  name: Create a subscription
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/subscriptions
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  items[0][billing_thresholds][usage_gte]: <integer>
+  items[0][discounts][0][coupon]: <string>
+  items[0][discounts][0][discount]: <string>
+  items[0][discounts][0][promotion_code]: <string>
+  items[0][discounts][1][coupon]: <string>
+  items[0][discounts][1][discount]: <string>
+  items[0][discounts][1][promotion_code]: <string>
+  items[0][metadata]: <object>
+  items[0][price]: <string>
+  items[0][price_data][currency]: <string>
+  items[0][price_data][product]: <string>
+  items[0][price_data][recurring][interval]: <string>
+  items[0][price_data][recurring][interval_count]: <integer>
+  items[0][price_data][tax_behavior]: <string>
+  items[0][price_data][unit_amount]: <integer>
+  items[0][price_data][unit_amount_decimal]: <decimal>
+  items[0][quantity]: <integer>
+  items[0][tax_rates][0]: <string>
+  items[0][tax_rates][1]: <string>
+  items[1][billing_thresholds][usage_gte]: <integer>
+  items[1][discounts][0][coupon]: <string>
+  items[1][discounts][0][discount]: <string>
+  items[1][discounts][0][promotion_code]: <string>
+  items[1][discounts][1][coupon]: <string>
+  items[1][discounts][1][discount]: <string>
+  items[1][discounts][1][promotion_code]: <string>
+  items[1][metadata]: <object>
+  items[1][price]: <string>
+  items[1][price_data][currency]: <string>
+  items[1][price_data][product]: <string>
+  items[1][price_data][recurring][interval]: <string>
+  items[1][price_data][recurring][interval_count]: <integer>
+  items[1][price_data][tax_behavior]: <string>
+  items[1][price_data][unit_amount]: <integer>
+  items[1][price_data][unit_amount_decimal]: <decimal>
+  items[1][quantity]: <integer>
+  items[1][tax_rates][0]: <string>
+  items[1][tax_rates][1]: <string>
+  customer: <string>
+  ~add_invoice_items[0][discounts][0][coupon]: <string>
+  ~add_invoice_items[0][discounts][0][discount]: <string>
+  ~add_invoice_items[0][discounts][0][promotion_code]: <string>
+  ~add_invoice_items[0][discounts][1][coupon]: <string>
+  ~add_invoice_items[0][discounts][1][discount]: <string>
+  ~add_invoice_items[0][discounts][1][promotion_code]: <string>
+  ~add_invoice_items[0][price]: <string>
+  ~add_invoice_items[0][price_data][currency]: <string>
+  ~add_invoice_items[0][price_data][product]: <string>
+  ~add_invoice_items[0][price_data][tax_behavior]: <string>
+  ~add_invoice_items[0][price_data][unit_amount]: <integer>
+  ~add_invoice_items[0][price_data][unit_amount_decimal]: <decimal>
+  ~add_invoice_items[0][quantity]: <integer>
+  ~add_invoice_items[0][tax_rates][0]: <string>
+  ~add_invoice_items[0][tax_rates][1]: <string>
+  ~add_invoice_items[1][discounts][0][coupon]: <string>
+  ~add_invoice_items[1][discounts][0][discount]: <string>
+  ~add_invoice_items[1][discounts][0][promotion_code]: <string>
+  ~add_invoice_items[1][discounts][1][coupon]: <string>
+  ~add_invoice_items[1][discounts][1][discount]: <string>
+  ~add_invoice_items[1][discounts][1][promotion_code]: <string>
+  ~add_invoice_items[1][price]: <string>
+  ~add_invoice_items[1][price_data][currency]: <string>
+  ~add_invoice_items[1][price_data][product]: <string>
+  ~add_invoice_items[1][price_data][tax_behavior]: <string>
+  ~add_invoice_items[1][price_data][unit_amount]: <integer>
+  ~add_invoice_items[1][price_data][unit_amount_decimal]: <decimal>
+  ~add_invoice_items[1][quantity]: <integer>
+  ~add_invoice_items[1][tax_rates][0]: <string>
+  ~add_invoice_items[1][tax_rates][1]: <string>
+  ~automatic_tax[enabled]: <boolean>
+  ~automatic_tax[liability][type]: <string>
+  ~automatic_tax[liability][account]: <string>
+  ~backdate_start_date: <unix-time>
+  ~billing_cycle_anchor: <unix-time>
+  ~billing_cycle_anchor_config[day_of_month]: <integer>
+  ~billing_cycle_anchor_config[hour]: <integer>
+  ~billing_cycle_anchor_config[minute]: <integer>
+  ~billing_cycle_anchor_config[month]: <integer>
+  ~billing_cycle_anchor_config[second]: <integer>
+  ~billing_thresholds[amount_gte]: <integer>
+  ~billing_thresholds[reset_billing_cycle_anchor]: <boolean>
+  ~cancel_at: <unix-time>
+  ~cancel_at_period_end: <boolean>
+  ~collection_method: <string>
+  ~coupon: <string>
+  ~currency: <string>
+  ~days_until_due: <integer>
+  ~default_payment_method: <string>
+  ~default_source: <string>
+  ~default_tax_rates[0]: <string>
+  ~default_tax_rates[1]: <string>
+  ~description: <string>
+  ~discounts[0][coupon]: <string>
+  ~discounts[0][discount]: <string>
+  ~discounts[0][promotion_code]: <string>
+  ~discounts[1][coupon]: <string>
+  ~discounts[1][discount]: <string>
+  ~discounts[1][promotion_code]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~invoice_settings[account_tax_ids][0]: <string>
+  ~invoice_settings[account_tax_ids][1]: <string>
+  ~invoice_settings[issuer][type]: <string>
+  ~invoice_settings[issuer][account]: <string>
+  ~off_session: <boolean>
+  ~payment_behavior: <string>
+  ~payment_settings[payment_method_options][acss_debit][mandate_options][transaction_type]: <string>
+  ~payment_settings[payment_method_options][acss_debit][verification_method]: <string>
+  ~payment_settings[payment_method_options][bancontact][preferred_language]: <string>
+  ~payment_settings[payment_method_options][card][mandate_options][amount]: <integer>
+  ~payment_settings[payment_method_options][card][mandate_options][amount_type]: <string>
+  ~payment_settings[payment_method_options][card][mandate_options][description]: <string>
+  ~payment_settings[payment_method_options][card][network]: <string>
+  ~payment_settings[payment_method_options][card][request_three_d_secure]: <string>
+  ~payment_settings[payment_method_options][customer_balance][bank_transfer][eu_bank_transfer][country]: <string>
+  ~payment_settings[payment_method_options][customer_balance][bank_transfer][type]: <string>
+  ~payment_settings[payment_method_options][customer_balance][funding_type]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][financial_connections][permissions][0]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][financial_connections][permissions][1]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][financial_connections][prefetch][0]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][financial_connections][prefetch][1]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][verification_method]: <string>
+  ~payment_settings[payment_method_types][0]: <string>
+  ~payment_settings[payment_method_types][1]: <string>
+  ~payment_settings[save_default_payment_method]: <string>
+  ~pending_invoice_item_interval[interval]: <string>
+  ~pending_invoice_item_interval[interval_count]: <integer>
+  ~promotion_code: <string>
+  ~proration_behavior: <string>
+  ~transfer_data[destination]: <string>
+  ~transfer_data[amount_percent]: <number>
+  ~trial_from_plan: <boolean>
+  ~trial_period_days: <integer>
+  ~trial_settings[end_behavior][missing_payment_method]: <string>
+}
+
+docs {
+  <p>Creates a new subscription on an existing customer. Each customer can have up to 500 active or scheduled subscriptions.</p>
+  
+  <p>When you create a subscription with <code>collection_method=charge_automatically</code>, the first invoice is finalized as part of the request.
+  The <code>payment_behavior</code> parameter determines the exact behavior of the initial payment.</p>
+  
+  <p>To start subscriptions where the first invoice always begins in a <code>draft</code> status, use <a href="/docs/billing/subscriptions/subscription-schedules#managing">subscription schedules</a> instead.
+  Schedules provide the flexibility to model more complex billing configurations that change over time.</p>
+}

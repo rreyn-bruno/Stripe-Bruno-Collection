@@ -1,0 +1,79 @@
+meta {
+  name: Update a source_1
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/v1/sources/:source
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  source: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount: <integer>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~mandate[acceptance][status]: <string>
+  ~mandate[acceptance][date]: <unix-time>
+  ~mandate[acceptance][ip]: <string>
+  ~mandate[acceptance][offline][contact_email]: <string>
+  ~mandate[acceptance][online][date]: <unix-time>
+  ~mandate[acceptance][online][ip]: <string>
+  ~mandate[acceptance][online][user_agent]: <string>
+  ~mandate[acceptance][type]: <string>
+  ~mandate[acceptance][user_agent]: <string>
+  ~mandate[amount]: <integer>
+  ~mandate[currency]: <string>
+  ~mandate[interval]: <string>
+  ~mandate[notification_method]: <string>
+  ~owner[address][city]: <string>
+  ~owner[address][country]: <string>
+  ~owner[address][line1]: <string>
+  ~owner[address][line2]: <string>
+  ~owner[address][postal_code]: <string>
+  ~owner[address][state]: <string>
+  ~owner[email]: <string>
+  ~owner[name]: <string>
+  ~owner[phone]: <string>
+  ~source_order[items][0][amount]: <integer>
+  ~source_order[items][0][currency]: <string>
+  ~source_order[items][0][description]: <string>
+  ~source_order[items][0][parent]: <string>
+  ~source_order[items][0][quantity]: <integer>
+  ~source_order[items][0][type]: <string>
+  ~source_order[items][1][amount]: <integer>
+  ~source_order[items][1][currency]: <string>
+  ~source_order[items][1][description]: <string>
+  ~source_order[items][1][parent]: <string>
+  ~source_order[items][1][quantity]: <integer>
+  ~source_order[items][1][type]: <string>
+  ~source_order[shipping][address][line1]: <string>
+  ~source_order[shipping][address][city]: <string>
+  ~source_order[shipping][address][country]: <string>
+  ~source_order[shipping][address][line2]: <string>
+  ~source_order[shipping][address][postal_code]: <string>
+  ~source_order[shipping][address][state]: <string>
+  ~source_order[shipping][carrier]: <string>
+  ~source_order[shipping][name]: <string>
+  ~source_order[shipping][phone]: <string>
+  ~source_order[shipping][tracking_number]: <string>
+}
+
+docs {
+  <p>Updates the specified source by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+  
+  <p>This request accepts the <code>metadata</code> and <code>owner</code> as arguments. It is also possible to update type specific information for selected payment methods. Please refer to our <a href="/docs/sources">payment method guides</a> for more detail.</p>
+}

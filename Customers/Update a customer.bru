@@ -1,0 +1,95 @@
+meta {
+  name: Update a customer
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/customers/:customer
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  customer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~address[city]: <string>
+  ~address[country]: <string>
+  ~address[line1]: <string>
+  ~address[line2]: <string>
+  ~address[postal_code]: <string>
+  ~address[state]: <string>
+  ~balance: <integer>
+  ~bank_account[account_number]: <string>
+  ~bank_account[country]: <string>
+  ~bank_account[account_holder_name]: <string>
+  ~bank_account[account_holder_type]: <string>
+  ~bank_account[currency]: <string>
+  ~bank_account[object]: <string>
+  ~bank_account[routing_number]: <string>
+  ~card[exp_month]: <integer>
+  ~card[exp_year]: <integer>
+  ~card[number]: <string>
+  ~card[address_city]: <string>
+  ~card[address_country]: <string>
+  ~card[address_line1]: <string>
+  ~card[address_line2]: <string>
+  ~card[address_state]: <string>
+  ~card[address_zip]: <string>
+  ~card[cvc]: <string>
+  ~card[metadata]: <object>
+  ~card[name]: <string>
+  ~card[object]: <string>
+  ~cash_balance[settings][reconciliation_mode]: <string>
+  ~coupon: <string>
+  ~default_alipay_account: <string>
+  ~default_bank_account: <string>
+  ~default_card: <string>
+  ~default_source: <string>
+  ~description: <string>
+  ~email: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~invoice_prefix: <string>
+  ~invoice_settings[custom_fields][0][name]: <string>
+  ~invoice_settings[custom_fields][0][value]: <string>
+  ~invoice_settings[custom_fields][1][name]: <string>
+  ~invoice_settings[custom_fields][1][value]: <string>
+  ~invoice_settings[default_payment_method]: <string>
+  ~invoice_settings[footer]: <string>
+  ~invoice_settings[rendering_options][amount_tax_display]: <string>
+  ~name: <string>
+  ~next_invoice_sequence: <integer>
+  ~phone: <string>
+  ~preferred_locales[0]: <string>
+  ~preferred_locales[1]: <string>
+  ~promotion_code: <string>
+  ~shipping[address][city]: <string>
+  ~shipping[address][country]: <string>
+  ~shipping[address][line1]: <string>
+  ~shipping[address][line2]: <string>
+  ~shipping[address][postal_code]: <string>
+  ~shipping[address][state]: <string>
+  ~shipping[name]: <string>
+  ~shipping[phone]: <string>
+  ~source: <string>
+  ~tax[ip_address]: <string>
+  ~tax[validate_location]: <string>
+  ~tax_exempt: <string>
+}
+
+docs {
+  <p>Updates the specified customer by setting the values of the parameters passed. Any parameters not provided will be left unchanged. For example, if you pass the <strong>source</strong> parameter, that becomes the customer’s active source (e.g., a card) to be used for all charges in the future. When you update a customer to a new valid card source by passing the <strong>source</strong> parameter: for each of the customer’s current subscriptions, if the subscription bills automatically and is in the <code>past_due</code> state, then the latest open invoice for the subscription with automatic collection enabled will be retried. This retry will not count as an automatic retry, and will not affect the next regularly scheduled payment for the invoice. Changing the <strong>default_source</strong> for a customer will not trigger this behavior.</p>
+  
+  <p>This request accepts mostly the same arguments as the customer creation call.</p>
+}

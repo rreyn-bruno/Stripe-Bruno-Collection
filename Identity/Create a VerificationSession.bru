@@ -1,0 +1,47 @@
+meta {
+  name: Create a VerificationSession
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/identity/verification_sessions
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~client_reference_id: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~options[document][allowed_types][0]: <string>
+  ~options[document][allowed_types][1]: <string>
+  ~options[document][require_id_number]: <boolean>
+  ~options[document][require_live_capture]: <boolean>
+  ~options[document][require_matching_selfie]: <boolean>
+  ~options[email][require_verification]: <boolean>
+  ~options[phone][require_verification]: <boolean>
+  ~provided_details[email]: <string>
+  ~provided_details[phone]: <string>
+  ~return_url: <string>
+  ~type: <string>
+  ~verification_flow: <string>
+}
+
+docs {
+  <p>Creates a VerificationSession object.</p>
+  
+  <p>After the VerificationSession is created, display a verification modal using the session <code>client_secret</code> or send your users to the session’s <code>url</code>.</p>
+  
+  <p>If your API key is in test mode, verification checks won’t actually process, though everything else will occur as if in live mode.</p>
+  
+  <p>Related guide: <a href="/docs/identity/verify-identity-documents">Verify your users’ identity documents</a></p>
+}

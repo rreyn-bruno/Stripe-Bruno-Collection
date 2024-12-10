@@ -1,0 +1,32 @@
+meta {
+  name: Cancel a top-up
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/topups/:topup/cancel
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  topup: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Cancels a top-up. Only pending top-ups can be canceled.</p>
+}

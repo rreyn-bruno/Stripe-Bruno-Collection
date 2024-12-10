@@ -1,0 +1,39 @@
+meta {
+  name: Create a payout
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/payouts
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  amount: <integer>
+  currency: <string>
+  ~description: <string>
+  ~destination: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~method: <string>
+  ~source_type: <string>
+  ~statement_descriptor: <string>
+}
+
+docs {
+  <p>To send funds to your own bank account, create a new payout object. Your <a href="#balance">Stripe balance</a> must cover the payout amount. If it doesn’t, you receive an “Insufficient Funds” error.</p>
+  
+  <p>If your API key is in test mode, money won’t actually be sent, though every other action occurs as if you’re in live mode.</p>
+  
+  <p>If you create a manual payout on a Stripe account that uses multiple payment source types, you need to specify the source type balance that the payout draws from. The <a href="#balance_object">balance object</a> details available and pending amounts by source type.</p>
+}

@@ -1,0 +1,36 @@
+meta {
+  name: Update a webhook endpoint
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/webhook_endpoints/:webhook_endpoint
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  webhook_endpoint: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~disabled: <boolean>
+  ~enabled_events[0]: <string>
+  ~enabled_events[1]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~url: <string>
+}
+
+docs {
+  <p>Updates the webhook endpoint. You may edit the <code>url</code>, the list of <code>enabled_events</code>, and the status of your endpoint.</p>
+}

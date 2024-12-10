@@ -1,0 +1,30 @@
+meta {
+  name: Creates a feature
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/entitlements/features
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  lookup_key: <string>
+  name: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates a feature</p>
+}

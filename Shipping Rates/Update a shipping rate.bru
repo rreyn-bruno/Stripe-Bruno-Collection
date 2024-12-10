@@ -1,0 +1,35 @@
+meta {
+  name: Update a shipping rate
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/shipping_rates/:shipping_rate_token
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  shipping_rate_token: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~active: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~fixed_amount[currency_options]: <object>
+  ~tax_behavior: <string>
+}
+
+docs {
+  <p>Updates an existing shipping rate object.</p>
+}

@@ -1,0 +1,72 @@
+meta {
+  name: Update payment method configuration
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_method_configurations/:configuration
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  configuration: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~acss_debit[display_preference][preference]: <string>
+  ~active: <boolean>
+  ~affirm[display_preference][preference]: <string>
+  ~afterpay_clearpay[display_preference][preference]: <string>
+  ~alipay[display_preference][preference]: <string>
+  ~amazon_pay[display_preference][preference]: <string>
+  ~apple_pay[display_preference][preference]: <string>
+  ~apple_pay_later[display_preference][preference]: <string>
+  ~au_becs_debit[display_preference][preference]: <string>
+  ~bacs_debit[display_preference][preference]: <string>
+  ~bancontact[display_preference][preference]: <string>
+  ~blik[display_preference][preference]: <string>
+  ~boleto[display_preference][preference]: <string>
+  ~card[display_preference][preference]: <string>
+  ~cartes_bancaires[display_preference][preference]: <string>
+  ~cashapp[display_preference][preference]: <string>
+  ~customer_balance[display_preference][preference]: <string>
+  ~eps[display_preference][preference]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~fpx[display_preference][preference]: <string>
+  ~giropay[display_preference][preference]: <string>
+  ~google_pay[display_preference][preference]: <string>
+  ~grabpay[display_preference][preference]: <string>
+  ~ideal[display_preference][preference]: <string>
+  ~jcb[display_preference][preference]: <string>
+  ~klarna[display_preference][preference]: <string>
+  ~konbini[display_preference][preference]: <string>
+  ~link[display_preference][preference]: <string>
+  ~name: <string>
+  ~oxxo[display_preference][preference]: <string>
+  ~p24[display_preference][preference]: <string>
+  ~paynow[display_preference][preference]: <string>
+  ~paypal[display_preference][preference]: <string>
+  ~promptpay[display_preference][preference]: <string>
+  ~revolut_pay[display_preference][preference]: <string>
+  ~sepa_debit[display_preference][preference]: <string>
+  ~sofort[display_preference][preference]: <string>
+  ~swish[display_preference][preference]: <string>
+  ~us_bank_account[display_preference][preference]: <string>
+  ~wechat_pay[display_preference][preference]: <string>
+  ~zip[display_preference][preference]: <string>
+}
+
+docs {
+  <p>Update payment method configuration</p>
+}

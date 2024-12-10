@@ -1,0 +1,38 @@
+meta {
+  name: List all SetupIntents
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/setup_intents
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~attach_to_self: <boolean>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~customer: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~payment_method: <string>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of SetupIntents.</p>
+}

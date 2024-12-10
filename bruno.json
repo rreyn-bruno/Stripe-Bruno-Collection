@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "⭐️ Stripe API [2024-04-10]",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

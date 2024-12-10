@@ -1,0 +1,32 @@
+meta {
+  name: Reactivates a billing meter
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/billing/meters/:id/reactivate
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Reactivates a billing meter</p>
+}

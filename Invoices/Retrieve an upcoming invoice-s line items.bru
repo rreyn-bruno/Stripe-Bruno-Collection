@@ -1,0 +1,174 @@
+meta {
+  name: Retrieve an upcoming invoice-s line items
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/v1/invoices/upcoming/lines
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~automatic_tax[enabled]: <boolean>
+  ~automatic_tax[liability][type]: <string>
+  ~automatic_tax[liability][account]: <string>
+  ~coupon: <string>
+  ~currency: <string>
+  ~customer: <string>
+  ~customer_details[address][city]: <string>
+  ~customer_details[address][country]: <string>
+  ~customer_details[address][line1]: <string>
+  ~customer_details[address][line2]: <string>
+  ~customer_details[address][postal_code]: <string>
+  ~customer_details[address][state]: <string>
+  ~customer_details[shipping][address][city]: <string>
+  ~customer_details[shipping][address][country]: <string>
+  ~customer_details[shipping][address][line1]: <string>
+  ~customer_details[shipping][address][line2]: <string>
+  ~customer_details[shipping][address][postal_code]: <string>
+  ~customer_details[shipping][address][state]: <string>
+  ~customer_details[shipping][name]: <string>
+  ~customer_details[shipping][phone]: <string>
+  ~customer_details[tax][ip_address]: <string>
+  ~customer_details[tax_exempt]: <string>
+  ~customer_details[tax_ids][0][type]: <string>
+  ~customer_details[tax_ids][0][value]: <string>
+  ~customer_details[tax_ids][1][type]: <string>
+  ~customer_details[tax_ids][1][value]: <string>
+  ~discounts[0][coupon]: <string>
+  ~discounts[0][discount]: <string>
+  ~discounts[0][promotion_code]: <string>
+  ~discounts[1][coupon]: <string>
+  ~discounts[1][discount]: <string>
+  ~discounts[1][promotion_code]: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~invoice_items[0][amount]: <integer>
+  ~invoice_items[0][currency]: <string>
+  ~invoice_items[0][description]: <string>
+  ~invoice_items[0][discountable]: <boolean>
+  ~invoice_items[0][discounts][0][coupon]: <string>
+  ~invoice_items[0][discounts][0][discount]: <string>
+  ~invoice_items[0][discounts][0][promotion_code]: <string>
+  ~invoice_items[0][discounts][1][coupon]: <string>
+  ~invoice_items[0][discounts][1][discount]: <string>
+  ~invoice_items[0][discounts][1][promotion_code]: <string>
+  ~invoice_items[0][invoiceitem]: <string>
+  ~invoice_items[0][metadata]: <object>
+  ~invoice_items[0][period][end]: <unix-time>
+  ~invoice_items[0][period][start]: <unix-time>
+  ~invoice_items[0][price]: <string>
+  ~invoice_items[0][price_data][currency]: <string>
+  ~invoice_items[0][price_data][product]: <string>
+  ~invoice_items[0][price_data][tax_behavior]: <string>
+  ~invoice_items[0][price_data][unit_amount]: <integer>
+  ~invoice_items[0][price_data][unit_amount_decimal]: <decimal>
+  ~invoice_items[0][quantity]: <integer>
+  ~invoice_items[0][tax_behavior]: <string>
+  ~invoice_items[0][tax_code]: <string>
+  ~invoice_items[0][tax_rates][0]: <string>
+  ~invoice_items[0][tax_rates][1]: <string>
+  ~invoice_items[0][unit_amount]: <integer>
+  ~invoice_items[0][unit_amount_decimal]: <decimal>
+  ~invoice_items[1][amount]: <integer>
+  ~invoice_items[1][currency]: <string>
+  ~invoice_items[1][description]: <string>
+  ~invoice_items[1][discountable]: <boolean>
+  ~invoice_items[1][discounts][0][coupon]: <string>
+  ~invoice_items[1][discounts][0][discount]: <string>
+  ~invoice_items[1][discounts][0][promotion_code]: <string>
+  ~invoice_items[1][discounts][1][coupon]: <string>
+  ~invoice_items[1][discounts][1][discount]: <string>
+  ~invoice_items[1][discounts][1][promotion_code]: <string>
+  ~invoice_items[1][invoiceitem]: <string>
+  ~invoice_items[1][metadata]: <object>
+  ~invoice_items[1][period][end]: <unix-time>
+  ~invoice_items[1][period][start]: <unix-time>
+  ~invoice_items[1][price]: <string>
+  ~invoice_items[1][price_data][currency]: <string>
+  ~invoice_items[1][price_data][product]: <string>
+  ~invoice_items[1][price_data][tax_behavior]: <string>
+  ~invoice_items[1][price_data][unit_amount]: <integer>
+  ~invoice_items[1][price_data][unit_amount_decimal]: <decimal>
+  ~invoice_items[1][quantity]: <integer>
+  ~invoice_items[1][tax_behavior]: <string>
+  ~invoice_items[1][tax_code]: <string>
+  ~invoice_items[1][tax_rates][0]: <string>
+  ~invoice_items[1][tax_rates][1]: <string>
+  ~invoice_items[1][unit_amount]: <integer>
+  ~invoice_items[1][unit_amount_decimal]: <decimal>
+  ~issuer[type]: <string>
+  ~issuer[account]: <string>
+  ~limit: <integer>
+  ~schedule: <string>
+  ~starting_after: <string>
+  ~subscription: <string>
+  ~subscription_cancel_at_period_end: <boolean>
+  ~subscription_cancel_now: <boolean>
+  ~subscription_default_tax_rates[0]: <string>
+  ~subscription_default_tax_rates[1]: <string>
+  ~subscription_items[0][billing_thresholds][usage_gte]: <integer>
+  ~subscription_items[0][clear_usage]: <boolean>
+  ~subscription_items[0][deleted]: <boolean>
+  ~subscription_items[0][discounts][0][coupon]: <string>
+  ~subscription_items[0][discounts][0][discount]: <string>
+  ~subscription_items[0][discounts][0][promotion_code]: <string>
+  ~subscription_items[0][discounts][1][coupon]: <string>
+  ~subscription_items[0][discounts][1][discount]: <string>
+  ~subscription_items[0][discounts][1][promotion_code]: <string>
+  ~subscription_items[0][id]: <string>
+  ~subscription_items[0][metadata]: <object>
+  ~subscription_items[0][price]: <string>
+  ~subscription_items[0][price_data][currency]: <string>
+  ~subscription_items[0][price_data][product]: <string>
+  ~subscription_items[0][price_data][recurring][interval]: <string>
+  ~subscription_items[0][price_data][recurring][interval_count]: <integer>
+  ~subscription_items[0][price_data][tax_behavior]: <string>
+  ~subscription_items[0][price_data][unit_amount]: <integer>
+  ~subscription_items[0][price_data][unit_amount_decimal]: <decimal>
+  ~subscription_items[0][quantity]: <integer>
+  ~subscription_items[0][tax_rates][0]: <string>
+  ~subscription_items[0][tax_rates][1]: <string>
+  ~subscription_items[1][billing_thresholds][usage_gte]: <integer>
+  ~subscription_items[1][clear_usage]: <boolean>
+  ~subscription_items[1][deleted]: <boolean>
+  ~subscription_items[1][discounts][0][coupon]: <string>
+  ~subscription_items[1][discounts][0][discount]: <string>
+  ~subscription_items[1][discounts][0][promotion_code]: <string>
+  ~subscription_items[1][discounts][1][coupon]: <string>
+  ~subscription_items[1][discounts][1][discount]: <string>
+  ~subscription_items[1][discounts][1][promotion_code]: <string>
+  ~subscription_items[1][id]: <string>
+  ~subscription_items[1][metadata]: <object>
+  ~subscription_items[1][price]: <string>
+  ~subscription_items[1][price_data][currency]: <string>
+  ~subscription_items[1][price_data][product]: <string>
+  ~subscription_items[1][price_data][recurring][interval]: <string>
+  ~subscription_items[1][price_data][recurring][interval_count]: <integer>
+  ~subscription_items[1][price_data][tax_behavior]: <string>
+  ~subscription_items[1][price_data][unit_amount]: <integer>
+  ~subscription_items[1][price_data][unit_amount_decimal]: <decimal>
+  ~subscription_items[1][quantity]: <integer>
+  ~subscription_items[1][tax_rates][0]: <string>
+  ~subscription_items[1][tax_rates][1]: <string>
+  ~subscription_proration_behavior: <string>
+  ~subscription_proration_date: <unix-time>
+  ~subscription_resume_at: <string>
+  ~subscription_start_date: <unix-time>
+  ~subscription_trial_from_plan: <boolean>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>When retrieving an upcoming invoice, you’ll get a <strong>lines</strong> property containing the total count of line items and the first handful of those items. There is also a URL where you can retrieve the full (paginated) list of line items.</p>
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a Configuration
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/v1/terminal/configurations/:configuration
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  configuration: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a <code>Configuration</code> object.</p>
+}

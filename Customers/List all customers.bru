@@ -1,0 +1,37 @@
+meta {
+  name: List all customers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/customers
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~email: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~test_clock: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of your customers. The customers are returned sorted by creation date, with the most recent customers appearing first.</p>
+}

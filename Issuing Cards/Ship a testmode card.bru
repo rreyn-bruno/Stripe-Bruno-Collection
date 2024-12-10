@@ -1,0 +1,32 @@
+meta {
+  name: Ship a testmode card
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/v1/test_helpers/issuing/cards/:card/shipping/ship
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  card: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Updates the shipping status of the specified Issuing <code>Card</code> object to <code>shipped</code>.</p>
+}

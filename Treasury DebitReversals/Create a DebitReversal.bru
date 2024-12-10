@@ -1,0 +1,29 @@
+meta {
+  name: Create a DebitReversal
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/debit_reversals
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  received_debit: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Reverses a ReceivedDebit and creates a DebitReversal object.</p>
+}

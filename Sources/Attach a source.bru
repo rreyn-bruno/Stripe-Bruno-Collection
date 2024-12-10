@@ -1,0 +1,58 @@
+meta {
+  name: Attach a source
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/customers/:customer/sources
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  customer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  source: <string>
+  ~alipay_account: <string>
+  ~bank_account[account_number]: <string>
+  ~bank_account[country]: <string>
+  ~bank_account[account_holder_name]: <string>
+  ~bank_account[account_holder_type]: <string>
+  ~bank_account[currency]: <string>
+  ~bank_account[object]: <string>
+  ~bank_account[routing_number]: <string>
+  ~card[exp_month]: <integer>
+  ~card[exp_year]: <integer>
+  ~card[number]: <string>
+  ~card[address_city]: <string>
+  ~card[address_country]: <string>
+  ~card[address_line1]: <string>
+  ~card[address_line2]: <string>
+  ~card[address_state]: <string>
+  ~card[address_zip]: <string>
+  ~card[cvc]: <string>
+  ~card[metadata]: <object>
+  ~card[name]: <string>
+  ~card[object]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>When you create a new credit card, you must specify a customer or recipient on which to create it.</p>
+  
+  <p>If the card’s owner has no default card, then the new card will become the default.
+  However, if the owner already has a default, then it will not change.
+  To change the default, you should <a href="/docs/api#update_customer">update the customer</a> to have a new <code>default_source</code>.</p>
+}

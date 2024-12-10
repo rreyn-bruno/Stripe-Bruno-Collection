@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a shipping rate
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/shipping_rates/:shipping_rate_token
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  shipping_rate_token: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns the shipping rate object with the given ID.</p>
+}

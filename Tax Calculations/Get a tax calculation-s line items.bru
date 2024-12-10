@@ -1,0 +1,35 @@
+meta {
+  name: Get a tax calculation-s line items
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/tax/calculations/:calculation/line_items
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+params:path {
+  calculation: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the line items of a persisted tax calculation as a collection.</p>
+}

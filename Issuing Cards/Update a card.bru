@@ -1,0 +1,52 @@
+meta {
+  name: Update a card
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/issuing/cards/:card
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  card: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~cancellation_reason: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~personalization_design: <string>
+  ~pin[encrypted_number]: <string>
+  ~spending_controls[allowed_categories][0]: <string>
+  ~spending_controls[allowed_categories][1]: <string>
+  ~spending_controls[allowed_merchant_countries][0]: <string>
+  ~spending_controls[allowed_merchant_countries][1]: <string>
+  ~spending_controls[blocked_categories][0]: <string>
+  ~spending_controls[blocked_categories][1]: <string>
+  ~spending_controls[blocked_merchant_countries][0]: <string>
+  ~spending_controls[blocked_merchant_countries][1]: <string>
+  ~spending_controls[spending_limits][0][amount]: <integer>
+  ~spending_controls[spending_limits][0][interval]: <string>
+  ~spending_controls[spending_limits][0][categories][0]: <string>
+  ~spending_controls[spending_limits][0][categories][1]: <string>
+  ~spending_controls[spending_limits][1][amount]: <integer>
+  ~spending_controls[spending_limits][1][interval]: <string>
+  ~spending_controls[spending_limits][1][categories][0]: <string>
+  ~spending_controls[spending_limits][1][categories][1]: <string>
+  ~status: <string>
+}
+
+docs {
+  <p>Updates the specified Issuing <code>Card</code> object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+}

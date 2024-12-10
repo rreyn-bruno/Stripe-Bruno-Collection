@@ -1,0 +1,33 @@
+meta {
+  name: Update a coupon
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/coupons/:coupon
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  coupon: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~name: <string>
+}
+
+docs {
+  <p>Updates the metadata of a coupon. Other coupon details (currency, duration, amount_off) are, by design, not editable.</p>
+}

@@ -1,0 +1,35 @@
+meta {
+  name: Verify a customer-s bank account
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/customers/:customer/sources/:id/verify
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  customer: <string>
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amounts[0]: <integer>
+  ~amounts[1]: <integer>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Verify a specified bank account for a given customer.</p>
+}

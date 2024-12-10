@@ -1,0 +1,109 @@
+meta {
+  name: Update an invoice
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/v1/invoices/:invoice
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  invoice: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~account_tax_ids[0]: <string>
+  ~account_tax_ids[1]: <string>
+  ~application_fee_amount: <integer>
+  ~auto_advance: <boolean>
+  ~automatic_tax[enabled]: <boolean>
+  ~automatic_tax[liability][type]: <string>
+  ~automatic_tax[liability][account]: <string>
+  ~collection_method: <string>
+  ~custom_fields[0][name]: <string>
+  ~custom_fields[0][value]: <string>
+  ~custom_fields[1][name]: <string>
+  ~custom_fields[1][value]: <string>
+  ~days_until_due: <integer>
+  ~default_payment_method: <string>
+  ~default_tax_rates[0]: <string>
+  ~default_tax_rates[1]: <string>
+  ~description: <string>
+  ~discounts[0][coupon]: <string>
+  ~discounts[0][discount]: <string>
+  ~discounts[0][promotion_code]: <string>
+  ~discounts[1][coupon]: <string>
+  ~discounts[1][discount]: <string>
+  ~discounts[1][promotion_code]: <string>
+  ~due_date: <unix-time>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~footer: <string>
+  ~issuer[type]: <string>
+  ~issuer[account]: <string>
+  ~payment_settings[default_mandate]: <string>
+  ~payment_settings[payment_method_options][acss_debit][mandate_options][transaction_type]: <string>
+  ~payment_settings[payment_method_options][acss_debit][verification_method]: <string>
+  ~payment_settings[payment_method_options][bancontact][preferred_language]: <string>
+  ~payment_settings[payment_method_options][card][installments][enabled]: <boolean>
+  ~payment_settings[payment_method_options][card][installments][plan][count]: <integer>
+  ~payment_settings[payment_method_options][card][installments][plan][interval]: <string>
+  ~payment_settings[payment_method_options][card][installments][plan][type]: <string>
+  ~payment_settings[payment_method_options][card][request_three_d_secure]: <string>
+  ~payment_settings[payment_method_options][customer_balance][bank_transfer][eu_bank_transfer][country]: <string>
+  ~payment_settings[payment_method_options][customer_balance][bank_transfer][type]: <string>
+  ~payment_settings[payment_method_options][customer_balance][funding_type]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][financial_connections][permissions][0]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][financial_connections][permissions][1]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][financial_connections][prefetch][0]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][financial_connections][prefetch][1]: <string>
+  ~payment_settings[payment_method_options][us_bank_account][verification_method]: <string>
+  ~payment_settings[payment_method_types][0]: <string>
+  ~payment_settings[payment_method_types][1]: <string>
+  ~rendering[amount_tax_display]: <string>
+  ~rendering[pdf][page_size]: <string>
+  ~shipping_cost[shipping_rate]: <string>
+  ~shipping_cost[shipping_rate_data][display_name]: <string>
+  ~shipping_cost[shipping_rate_data][delivery_estimate][maximum][unit]: <string>
+  ~shipping_cost[shipping_rate_data][delivery_estimate][maximum][value]: <integer>
+  ~shipping_cost[shipping_rate_data][delivery_estimate][minimum][unit]: <string>
+  ~shipping_cost[shipping_rate_data][delivery_estimate][minimum][value]: <integer>
+  ~shipping_cost[shipping_rate_data][fixed_amount][amount]: <integer>
+  ~shipping_cost[shipping_rate_data][fixed_amount][currency]: <string>
+  ~shipping_cost[shipping_rate_data][fixed_amount][currency_options]: <object>
+  ~shipping_cost[shipping_rate_data][metadata]: <object>
+  ~shipping_cost[shipping_rate_data][tax_behavior]: <string>
+  ~shipping_cost[shipping_rate_data][tax_code]: <string>
+  ~shipping_cost[shipping_rate_data][type]: <string>
+  ~shipping_details[address][city]: <string>
+  ~shipping_details[address][country]: <string>
+  ~shipping_details[address][line1]: <string>
+  ~shipping_details[address][line2]: <string>
+  ~shipping_details[address][postal_code]: <string>
+  ~shipping_details[address][state]: <string>
+  ~shipping_details[name]: <string>
+  ~shipping_details[phone]: <string>
+  ~statement_descriptor: <string>
+  ~transfer_data[destination]: <string>
+  ~transfer_data[amount]: <integer>
+}
+
+docs {
+  <p>Draft invoices are fully editable. Once an invoice is <a href="/docs/billing/invoices/workflow#finalized">finalized</a>,
+  monetary values, as well as <code>collection_method</code>, become uneditable.</p>
+  
+  <p>If you would like to stop the Stripe Billing engine from automatically finalizing, reattempting payments on,
+  sending reminders for, or <a href="/docs/billing/invoices/reconciliation">automatically reconciling</a> invoices, pass
+  <code>auto_advance=false</code>.</p>
+}

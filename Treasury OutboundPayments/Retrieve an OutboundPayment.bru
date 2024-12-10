@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve an OutboundPayment
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/v1/treasury/outbound_payments/:id
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the details of an existing OutboundPayment by passing the unique OutboundPayment ID from either the OutboundPayment creation request or OutboundPayment list.</p>
+}

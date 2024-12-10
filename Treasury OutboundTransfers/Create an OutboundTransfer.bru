@@ -1,0 +1,35 @@
+meta {
+  name: Create an OutboundTransfer
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/outbound_transfers
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  amount: <integer>
+  currency: <string>
+  financial_account: <string>
+  ~description: <string>
+  ~destination_payment_method: <string>
+  ~destination_payment_method_options[us_bank_account][network]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~statement_descriptor: <string>
+}
+
+docs {
+  <p>Creates an OutboundTransfer.</p>
+}

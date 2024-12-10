@@ -1,0 +1,34 @@
+meta {
+  name: Update an account capability
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/v1/accounts/:account/capabilities/:capability
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  account: <string>
+  capability: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~requested: <boolean>
+}
+
+docs {
+  <p>Updates an existing Account Capability. Request or remove a capability by updating its <code>requested</code> parameter.</p>
+}

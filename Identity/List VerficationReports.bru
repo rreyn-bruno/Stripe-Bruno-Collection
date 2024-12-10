@@ -1,0 +1,38 @@
+meta {
+  name: List VerficationReports
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/identity/verification_reports
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~client_reference_id: <string>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+  ~type: <string>
+  ~verification_session: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>List all verification reports.</p>
+}

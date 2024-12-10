@@ -1,0 +1,46 @@
+meta {
+  name: Update a PaymentMethod
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_methods/:payment_method
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  payment_method: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~billing_details[address][city]: <string>
+  ~billing_details[address][country]: <string>
+  ~billing_details[address][line1]: <string>
+  ~billing_details[address][line2]: <string>
+  ~billing_details[address][postal_code]: <string>
+  ~billing_details[address][state]: <string>
+  ~billing_details[email]: <string>
+  ~billing_details[name]: <string>
+  ~billing_details[phone]: <string>
+  ~card[exp_month]: <integer>
+  ~card[exp_year]: <integer>
+  ~card[networks][preferred]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~us_bank_account[account_holder_type]: <string>
+  ~us_bank_account[account_type]: <string>
+}
+
+docs {
+  <p>Updates a PaymentMethod object. A PaymentMethod must be attached a customer to be updated.</p>
+}

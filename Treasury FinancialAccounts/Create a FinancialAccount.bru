@@ -1,0 +1,41 @@
+meta {
+  name: Create a FinancialAccount
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/financial_accounts
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  supported_currencies[0]: <string>
+  supported_currencies[1]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~features[card_issuing][requested]: <boolean>
+  ~features[deposit_insurance][requested]: <boolean>
+  ~features[financial_addresses][aba][requested]: <boolean>
+  ~features[inbound_transfers][ach][requested]: <boolean>
+  ~features[intra_stripe_flows][requested]: <boolean>
+  ~features[outbound_payments][ach][requested]: <boolean>
+  ~features[outbound_payments][us_domestic_wire][requested]: <boolean>
+  ~features[outbound_transfers][ach][requested]: <boolean>
+  ~features[outbound_transfers][us_domestic_wire][requested]: <boolean>
+  ~platform_restrictions[inbound_flows]: <string>
+  ~platform_restrictions[outbound_flows]: <string>
+}
+
+docs {
+  <p>Creates a new FinancialAccount. For now, each connected account can only have one FinancialAccount.</p>
+}

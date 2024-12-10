@@ -1,0 +1,27 @@
+meta {
+  name: Delete a customer
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/v1/customers/:customer
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  customer: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Permanently deletes a customer. It cannot be undone. Also immediately cancels any active subscriptions on the customer.</p>
+}

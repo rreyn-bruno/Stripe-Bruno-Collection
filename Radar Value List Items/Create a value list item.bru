@@ -1,0 +1,30 @@
+meta {
+  name: Create a value list item
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/radar/value_list_items
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  value: <string>
+  value_list: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Creates a new <code>ValueListItem</code> object, which is added to the specified parent value list.</p>
+}

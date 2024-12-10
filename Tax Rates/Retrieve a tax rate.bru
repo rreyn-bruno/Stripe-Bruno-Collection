@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a tax rate
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/tax_rates/:tax_rate
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  tax_rate: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a tax rate with the given ID</p>
+}

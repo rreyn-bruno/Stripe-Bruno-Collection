@@ -1,0 +1,50 @@
+meta {
+  name: Create a subscription item
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/subscription_items
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  subscription: <string>
+  ~billing_thresholds[usage_gte]: <integer>
+  ~discounts[0][coupon]: <string>
+  ~discounts[0][discount]: <string>
+  ~discounts[0][promotion_code]: <string>
+  ~discounts[1][coupon]: <string>
+  ~discounts[1][discount]: <string>
+  ~discounts[1][promotion_code]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~payment_behavior: <string>
+  ~price: <string>
+  ~price_data[currency]: <string>
+  ~price_data[product]: <string>
+  ~price_data[recurring][interval]: <string>
+  ~price_data[recurring][interval_count]: <integer>
+  ~price_data[tax_behavior]: <string>
+  ~price_data[unit_amount]: <integer>
+  ~price_data[unit_amount_decimal]: <decimal>
+  ~proration_behavior: <string>
+  ~proration_date: <unix-time>
+  ~quantity: <integer>
+  ~tax_rates[0]: <string>
+  ~tax_rates[1]: <string>
+}
+
+docs {
+  <p>Adds a new item to an existing subscription. No existing items will be changed or replaced.</p>
+}

@@ -1,0 +1,71 @@
+meta {
+  name: Update a cardholder
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/v1/issuing/cardholders/:cardholder
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  cardholder: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~billing[address][city]: <string>
+  ~billing[address][country]: <string>
+  ~billing[address][line1]: <string>
+  ~billing[address][postal_code]: <string>
+  ~billing[address][line2]: <string>
+  ~billing[address][state]: <string>
+  ~company[tax_id]: <string>
+  ~email: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~individual[card_issuing][user_terms_acceptance][date]: <unix-time>
+  ~individual[card_issuing][user_terms_acceptance][ip]: <string>
+  ~individual[card_issuing][user_terms_acceptance][user_agent]: <string>
+  ~individual[dob][day]: <integer>
+  ~individual[dob][month]: <integer>
+  ~individual[dob][year]: <integer>
+  ~individual[first_name]: <string>
+  ~individual[last_name]: <string>
+  ~individual[verification][document][back]: <string>
+  ~individual[verification][document][front]: <string>
+  ~phone_number: <string>
+  ~preferred_locales[0]: <string>
+  ~preferred_locales[1]: <string>
+  ~spending_controls[allowed_categories][0]: <string>
+  ~spending_controls[allowed_categories][1]: <string>
+  ~spending_controls[allowed_merchant_countries][0]: <string>
+  ~spending_controls[allowed_merchant_countries][1]: <string>
+  ~spending_controls[blocked_categories][0]: <string>
+  ~spending_controls[blocked_categories][1]: <string>
+  ~spending_controls[blocked_merchant_countries][0]: <string>
+  ~spending_controls[blocked_merchant_countries][1]: <string>
+  ~spending_controls[spending_limits][0][amount]: <integer>
+  ~spending_controls[spending_limits][0][interval]: <string>
+  ~spending_controls[spending_limits][0][categories][0]: <string>
+  ~spending_controls[spending_limits][0][categories][1]: <string>
+  ~spending_controls[spending_limits][1][amount]: <integer>
+  ~spending_controls[spending_limits][1][interval]: <string>
+  ~spending_controls[spending_limits][1][categories][0]: <string>
+  ~spending_controls[spending_limits][1][categories][1]: <string>
+  ~spending_controls[spending_limits_currency]: <string>
+  ~status: <string>
+}
+
+docs {
+  <p>Updates the specified Issuing <code>Cardholder</code> object by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+}

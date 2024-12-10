@@ -1,0 +1,32 @@
+meta {
+  name: Retrieve a CreditReversal
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/treasury/credit_reversals/:credit_reversal
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  credit_reversal: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves the details of an existing CreditReversal by passing the unique CreditReversal ID from either the CreditReversal creation request or CreditReversal list</p>
+}

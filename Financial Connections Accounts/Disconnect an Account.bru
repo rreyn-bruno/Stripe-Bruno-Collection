@@ -1,0 +1,32 @@
+meta {
+  name: Disconnect an Account
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/v1/financial_connections/accounts/:account/disconnect
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Disables your access to a Financial Connections <code>Account</code>. You will no longer be able to access data associated with the account (e.g. balances, transactions).</p>
+}

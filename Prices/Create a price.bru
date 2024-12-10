@@ -1,0 +1,67 @@
+meta {
+  name: Create a price
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/prices
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  currency: <string>
+  ~active: <boolean>
+  ~billing_scheme: <string>
+  ~custom_unit_amount[enabled]: <boolean>
+  ~custom_unit_amount[maximum]: <integer>
+  ~custom_unit_amount[minimum]: <integer>
+  ~custom_unit_amount[preset]: <integer>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~lookup_key: <string>
+  ~nickname: <string>
+  ~product: <string>
+  ~product_data[name]: <string>
+  ~product_data[active]: <boolean>
+  ~product_data[id]: <string>
+  ~product_data[metadata]: <object>
+  ~product_data[statement_descriptor]: <string>
+  ~product_data[tax_code]: <string>
+  ~product_data[unit_label]: <string>
+  ~recurring[interval]: <string>
+  ~recurring[aggregate_usage]: <string>
+  ~recurring[interval_count]: <integer>
+  ~recurring[meter]: <string>
+  ~recurring[usage_type]: <string>
+  ~tax_behavior: <string>
+  ~tiers[0][up_to]: <string>
+  ~tiers[0][flat_amount]: <integer>
+  ~tiers[0][flat_amount_decimal]: <decimal>
+  ~tiers[0][unit_amount]: <integer>
+  ~tiers[0][unit_amount_decimal]: <decimal>
+  ~tiers[1][up_to]: <string>
+  ~tiers[1][flat_amount]: <integer>
+  ~tiers[1][flat_amount_decimal]: <decimal>
+  ~tiers[1][unit_amount]: <integer>
+  ~tiers[1][unit_amount_decimal]: <decimal>
+  ~tiers_mode: <string>
+  ~transfer_lookup_key: <boolean>
+  ~transform_quantity[divide_by]: <integer>
+  ~transform_quantity[round]: <string>
+  ~unit_amount: <integer>
+  ~unit_amount_decimal: <decimal>
+}
+
+docs {
+  <p>Creates a new price for an existing product. The price can be recurring or one-time.</p>
+}

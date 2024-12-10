@@ -1,0 +1,31 @@
+meta {
+  name: Delete an account
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/v1/accounts/:account
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>With <a href="/docs/connect">Connect</a>, you can delete accounts you manage.</p>
+  
+  <p>Accounts created using test-mode keys can be deleted at any time. Standard accounts created using live-mode keys cannot be deleted. Custom or Express accounts created using live-mode keys can only be deleted once all balances are zero.</p>
+  
+  <p>If you want to delete your own account, use the <a href="https://dashboard.stripe.com/settings/account">account information tab in your account settings</a> instead.</p>
+}

@@ -1,0 +1,31 @@
+meta {
+  name: Create a value list
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/radar/value_lists
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  alias: <string>
+  name: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~item_type: <string>
+}
+
+docs {
+  <p>Creates a new <code>ValueList</code> object, which can then be referenced in rules.</p>
+}

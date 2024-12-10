@@ -1,0 +1,45 @@
+meta {
+  name: Update a product
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/products/:id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~active: <boolean>
+  ~default_price: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~images[0]: <string>
+  ~images[1]: <string>
+  ~marketing_features[0][name]: <string>
+  ~marketing_features[1][name]: <string>
+  ~name: <string>
+  ~package_dimensions[height]: <number>
+  ~package_dimensions[length]: <number>
+  ~package_dimensions[weight]: <number>
+  ~package_dimensions[width]: <number>
+  ~shippable: <boolean>
+  ~statement_descriptor: <string>
+}
+
+docs {
+  <p>Updates the specific product by setting the values of the parameters passed. Any parameters not provided will be left unchanged.</p>
+}

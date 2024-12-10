@@ -1,0 +1,44 @@
+meta {
+  name: Create a bank account or card
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/v1/accounts/:account/external_accounts
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  account: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~bank_account[account_number]: <string>
+  ~bank_account[country]: <string>
+  ~bank_account[account_holder_name]: <string>
+  ~bank_account[account_holder_type]: <string>
+  ~bank_account[account_type]: <string>
+  ~bank_account[currency]: <string>
+  ~bank_account[documents][bank_account_ownership_verification][files][0]: <string>
+  ~bank_account[documents][bank_account_ownership_verification][files][1]: <string>
+  ~bank_account[object]: <string>
+  ~bank_account[routing_number]: <string>
+  ~default_for_currency: <boolean>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~external_account: <string>
+}
+
+docs {
+  <p>Create an external account for a given account.</p>
+}

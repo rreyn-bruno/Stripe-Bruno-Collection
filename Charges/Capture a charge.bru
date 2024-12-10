@@ -1,0 +1,44 @@
+meta {
+  name: Capture a charge
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/charges/:charge/capture
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  charge: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount: <integer>
+  ~application_fee: <integer>
+  ~application_fee_amount: <integer>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~receipt_email: <string>
+  ~statement_descriptor: <string>
+  ~statement_descriptor_suffix: <string>
+  ~transfer_data[amount]: <integer>
+  ~transfer_group: <string>
+}
+
+docs {
+  <p>Capture the payment of an existing, uncaptured charge that was created with the <code>capture</code> option set to false.</p>
+  
+  <p>Uncaptured payments expire a set number of days after they are created (<a href="/docs/charges/placing-a-hold">7 by default</a>), after which they are marked as refunded and capture attempts will fail.</p>
+  
+  <p>Don’t use this method to capture a PaymentIntent-initiated charge. Use <a href="/docs/api/payment_intents/capture">Capture a PaymentIntent</a>.</p>
+}

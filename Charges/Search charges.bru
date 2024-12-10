@@ -1,0 +1,34 @@
+meta {
+  name: Search charges
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/v1/charges/search?query=<string>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  query: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~page: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Search for charges you’ve previously created using Stripe’s <a href="/docs/search#search-query-language">Search Query Language</a>.
+  Don’t use search in read-after-write flows where strict consistency is necessary. Under normal operating
+  conditions, data is searchable in less than a minute. Occasionally, propagation of new or updated data can be up
+  to an hour behind during outages. Search functionality is not available to merchants in India.</p>
+}

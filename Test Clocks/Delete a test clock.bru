@@ -1,0 +1,27 @@
+meta {
+  name: Delete a test clock
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/test_helpers/test_clocks/:test_clock
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  test_clock: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Deletes a test clock.</p>
+}

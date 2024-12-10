@@ -1,0 +1,33 @@
+meta {
+  name: Retrieve an application fee refund
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/v1/application_fees/:fee/refunds/:id
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+params:path {
+  fee: <string>
+  id: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>By default, you can see the 10 most recent refunds stored directly on the application fee object, but you can also retrieve details about a specific refund stored on the application fee.</p>
+}

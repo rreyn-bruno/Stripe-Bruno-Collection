@@ -1,0 +1,33 @@
+meta {
+  name: List portal configurations
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/billing_portal/configurations
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~active: <boolean>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~is_default: <boolean>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of configurations that describe the functionality of the customer portal.</p>
+}

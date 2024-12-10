@@ -1,0 +1,71 @@
+meta {
+  name: Create a customer
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/customers
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~address[city]: <string>
+  ~address[country]: <string>
+  ~address[line1]: <string>
+  ~address[line2]: <string>
+  ~address[postal_code]: <string>
+  ~address[state]: <string>
+  ~balance: <integer>
+  ~cash_balance[settings][reconciliation_mode]: <string>
+  ~coupon: <string>
+  ~description: <string>
+  ~email: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~invoice_prefix: <string>
+  ~invoice_settings[custom_fields][0][name]: <string>
+  ~invoice_settings[custom_fields][0][value]: <string>
+  ~invoice_settings[custom_fields][1][name]: <string>
+  ~invoice_settings[custom_fields][1][value]: <string>
+  ~invoice_settings[default_payment_method]: <string>
+  ~invoice_settings[footer]: <string>
+  ~invoice_settings[rendering_options][amount_tax_display]: <string>
+  ~name: <string>
+  ~next_invoice_sequence: <integer>
+  ~payment_method: <string>
+  ~phone: <string>
+  ~preferred_locales[0]: <string>
+  ~preferred_locales[1]: <string>
+  ~promotion_code: <string>
+  ~shipping[address][city]: <string>
+  ~shipping[address][country]: <string>
+  ~shipping[address][line1]: <string>
+  ~shipping[address][line2]: <string>
+  ~shipping[address][postal_code]: <string>
+  ~shipping[address][state]: <string>
+  ~shipping[name]: <string>
+  ~shipping[phone]: <string>
+  ~source: <string>
+  ~tax[ip_address]: <string>
+  ~tax[validate_location]: <string>
+  ~tax_exempt: <string>
+  ~tax_id_data[0][type]: <string>
+  ~tax_id_data[0][value]: <string>
+  ~tax_id_data[1][type]: <string>
+  ~tax_id_data[1][value]: <string>
+  ~test_clock: <string>
+}
+
+docs {
+  <p>Creates a new customer object.</p>
+}

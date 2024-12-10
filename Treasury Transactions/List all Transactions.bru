@@ -1,0 +1,42 @@
+meta {
+  name: List all Transactions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/treasury/transactions?financial_account=<string>
+  body: none
+  auth: bearer
+}
+
+params:query {
+  financial_account: <string>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~order_by: <string>
+  ~starting_after: <string>
+  ~status: <string>
+  ~status_transitions[posted_at][gt]: <integer>
+  ~status_transitions[posted_at][gte]: <integer>
+  ~status_transitions[posted_at][lt]: <integer>
+  ~status_transitions[posted_at][lte]: <integer>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Retrieves a list of Transaction objects.</p>
+}

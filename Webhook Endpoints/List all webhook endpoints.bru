@@ -1,0 +1,31 @@
+meta {
+  name: List all webhook endpoints
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/webhook_endpoints
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of your webhook endpoints.</p>
+}

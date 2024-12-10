@@ -1,0 +1,34 @@
+meta {
+  name: Create an Order
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/climate/orders
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  product: <string>
+  ~amount: <integer>
+  ~beneficiary[public_name]: <string>
+  ~currency: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~metric_tons: <decimal>
+}
+
+docs {
+  <p>Creates a Climate order object for a given Climate product. The order will be processed immediately
+  after creation and payment will be deducted your Stripe balance.</p>
+}

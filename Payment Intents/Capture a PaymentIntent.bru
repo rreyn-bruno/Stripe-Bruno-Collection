@@ -1,0 +1,42 @@
+meta {
+  name: Capture a PaymentIntent
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/v1/payment_intents/:intent/capture
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  intent: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount_to_capture: <integer>
+  ~application_fee_amount: <integer>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~final_capture: <boolean>
+  ~statement_descriptor: <string>
+  ~statement_descriptor_suffix: <string>
+  ~transfer_data[amount]: <integer>
+}
+
+docs {
+  <p>Capture the funds of an existing uncaptured PaymentIntent when its status is <code>requires_capture</code>.</p>
+  
+  <p>Uncaptured PaymentIntents are cancelled a set number of days (7 by default) after their creation.</p>
+  
+  <p>Learn more about <a href="/docs/payments/capture-later">separate authorization and capture</a>.</p>
+}

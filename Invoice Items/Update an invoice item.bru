@@ -1,0 +1,55 @@
+meta {
+  name: Update an invoice item
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/v1/invoiceitems/:invoiceitem
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  invoiceitem: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  ~amount: <integer>
+  ~description: <string>
+  ~discountable: <boolean>
+  ~discounts[0][coupon]: <string>
+  ~discounts[0][discount]: <string>
+  ~discounts[0][promotion_code]: <string>
+  ~discounts[1][coupon]: <string>
+  ~discounts[1][discount]: <string>
+  ~discounts[1][promotion_code]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~period[end]: <unix-time>
+  ~period[start]: <unix-time>
+  ~price: <string>
+  ~price_data[currency]: <string>
+  ~price_data[product]: <string>
+  ~price_data[tax_behavior]: <string>
+  ~price_data[unit_amount]: <integer>
+  ~price_data[unit_amount_decimal]: <decimal>
+  ~quantity: <integer>
+  ~tax_behavior: <string>
+  ~tax_rates[0]: <string>
+  ~tax_rates[1]: <string>
+  ~unit_amount: <integer>
+  ~unit_amount_decimal: <decimal>
+}
+
+docs {
+  <p>Updates the amount or description of an invoice item on an upcoming invoice. Updating an invoice item is only possible before the invoice it’s attached to is closed.</p>
+}

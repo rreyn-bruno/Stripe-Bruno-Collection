@@ -1,0 +1,60 @@
+meta {
+  name: Retrieve a tax transaction-s line items
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/v1/tax/calculations
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  currency: <string>
+  line_items[0][amount]: <integer>
+  line_items[0][product]: <string>
+  line_items[0][quantity]: <integer>
+  line_items[0][reference]: <string>
+  line_items[0][tax_behavior]: <string>
+  line_items[0][tax_code]: <string>
+  line_items[1][amount]: <integer>
+  line_items[1][product]: <string>
+  line_items[1][quantity]: <integer>
+  line_items[1][reference]: <string>
+  line_items[1][tax_behavior]: <string>
+  line_items[1][tax_code]: <string>
+  ~customer: <string>
+  ~customer_details[address][country]: <string>
+  ~customer_details[address][city]: <string>
+  ~customer_details[address][line1]: <string>
+  ~customer_details[address][line2]: <string>
+  ~customer_details[address][postal_code]: <string>
+  ~customer_details[address][state]: <string>
+  ~customer_details[address_source]: <string>
+  ~customer_details[ip_address]: <string>
+  ~customer_details[tax_ids][0][type]: <string>
+  ~customer_details[tax_ids][0][value]: <string>
+  ~customer_details[tax_ids][1][type]: <string>
+  ~customer_details[tax_ids][1][value]: <string>
+  ~customer_details[taxability_override]: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~shipping_cost[amount]: <integer>
+  ~shipping_cost[shipping_rate]: <string>
+  ~shipping_cost[tax_behavior]: <string>
+  ~shipping_cost[tax_code]: <string>
+  ~tax_date: <integer>
+}
+
+docs {
+  <p>Calculates tax based on input and returns a Tax <code>Calculation</code> object.</p>
+}

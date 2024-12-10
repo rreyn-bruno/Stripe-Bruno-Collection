@@ -1,0 +1,27 @@
+meta {
+  name: Delete a coupon
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/v1/coupons/:coupon
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  coupon: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>You can delete coupons via the <a href="https://dashboard.stripe.com/coupons">coupon management</a> page of the Stripe dashboard. However, deleting a coupon does not affect any customers who have already applied the coupon; it means that new customers can’t redeem the coupon. You can also delete coupons via the API.</p>
+}

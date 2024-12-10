@@ -1,0 +1,49 @@
+meta {
+  name: List subscriptions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/subscriptions
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~automatic_tax[enabled]: <boolean>
+  ~collection_method: <string>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~current_period_end[gt]: <integer>
+  ~current_period_end[gte]: <integer>
+  ~current_period_end[lt]: <integer>
+  ~current_period_end[lte]: <integer>
+  ~current_period_start[gt]: <integer>
+  ~current_period_start[gte]: <integer>
+  ~current_period_start[lt]: <integer>
+  ~current_period_start[lte]: <integer>
+  ~customer: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~price: <string>
+  ~starting_after: <string>
+  ~status: <string>
+  ~test_clock: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>By default, returns a list of subscriptions that have not been canceled. In order to list canceled subscriptions, specify <code>status=canceled</code>.</p>
+}

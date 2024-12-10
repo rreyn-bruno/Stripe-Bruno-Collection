@@ -1,0 +1,29 @@
+meta {
+  name: Create a CreditReversal
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/treasury/credit_reversals
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+body:form-urlencoded {
+  received_credit: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+}
+
+docs {
+  <p>Reverses a ReceivedCredit and creates a CreditReversal object.</p>
+}

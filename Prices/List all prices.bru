@@ -1,0 +1,44 @@
+meta {
+  name: List all prices
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/prices
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~active: <boolean>
+  ~created[gt]: <integer>
+  ~created[gte]: <integer>
+  ~created[lt]: <integer>
+  ~created[lte]: <integer>
+  ~currency: <string>
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~lookup_keys[0]: <string>
+  ~lookup_keys[1]: <string>
+  ~product: <string>
+  ~recurring[interval]: <string>
+  ~recurring[meter]: <string>
+  ~recurring[usage_type]: <string>
+  ~starting_after: <string>
+  ~type: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Returns a list of your active prices, excluding <a href="/docs/products-prices/pricing-models#inline-pricing">inline prices</a>. For the list of inactive prices, set <code>active</code> to false.</p>
+}

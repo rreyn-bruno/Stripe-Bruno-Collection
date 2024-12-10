@@ -1,0 +1,31 @@
+meta {
+  name: List products
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/v1/climate/products
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ending_before: <string>
+  ~expand[0]: <string>
+  ~expand[1]: <string>
+  ~limit: <integer>
+  ~starting_after: <string>
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: <Bearer Token>
+}
+
+docs {
+  <p>Lists all available Climate product objects.</p>
+}
