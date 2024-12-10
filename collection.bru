@@ -1,11 +1,9 @@
 meta {
-  name: ⭐️ Stripe API [2024-04-10]
+  name: Stripe API - April 2024
 }
 
 auth {
   mode: none
 }
 
-script:pre-request {
-  pm.request.headers.upsert({key:"User-Agent",value:pm.variables.get("versionUserAgent")})
-}
+
